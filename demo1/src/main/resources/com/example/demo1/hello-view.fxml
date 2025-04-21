@@ -55,7 +55,7 @@
          <children>
             <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="61.0" style="-fx-background-color: transparent;" text="Home" textFill="#f8f8f8" />
             <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" style="-fx-background-color: transparent;" text="Help" textFill="#fbfafa" />
-            <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Register" textFill="#f8f4f4" />
+            <Button mnemonicParsing="false" onAction="#RegisterPage" style="-fx-background-color: transparent;" text="Register" textFill="#f8f4f4" />
             <Button mnemonicParsing="false" onAction="#LoginPage" prefHeight="25.0" prefWidth="74.0" style="-fx-background-color: transparent;" text="Login" textFill="#f6f3f3" />
          </children>
       </HBox>

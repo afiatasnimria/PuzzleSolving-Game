@@ -28,4 +28,13 @@ public class HelloController {
         stage.show();
     }
 
+    public void RegisterPage(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("registerPage.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setTitle("Register Page");
+        stage.setScene(scene);
+        stage.show();
+    }
+
 }
