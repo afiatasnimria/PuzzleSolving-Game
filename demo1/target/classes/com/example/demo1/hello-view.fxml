@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: backgroung.png;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="503.0" prefWidth="755.0" style="-fx-background-image: backgroung.png;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.HelloController">
    <children>
-      <ImageView fitHeight="417.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="513.0" fitWidth="761.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@background.png" />
          </image>
@@ -27,12 +27,12 @@
             <Label prefHeight="30.0" prefWidth="327.0" text="Enter the Maze. Solve the Riddles. Unlock the Exit – Together." textFill="#f6f0f0" />
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                <children>
-                  <Button mnemonicParsing="false" style="-fx-background-color: brown;" text="Start game" textAlignment="JUSTIFY" textFill="#cccaca">
+                  <Button mnemonicParsing="false" style="-fx-background-color: brown; -fx-cursor: hand;" text="Start game" textAlignment="JUSTIFY" textFill="#cccaca">
                      <font>
                         <Font name="System Bold Italic" size="17.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="137.0" text="Join a team" textAlignment="CENTER">
+                  <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="137.0" style="-fx-cursor: hand;" text="Join a team" textAlignment="CENTER">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
@@ -42,22 +42,19 @@
          </children>
       </VBox>
       <Hyperlink layoutX="107.0" layoutY="240.0" text="Watch Gameplay Demo" textFill="#ed9b9b" />
-      <HBox layoutX="46.0" layoutY="370.0" prefHeight="31.0" prefWidth="495.0" spacing="40.0">
+      <HBox layoutX="123.0" layoutY="458.0" prefHeight="31.0" prefWidth="495.0" spacing="40.0" style="-fx-cursor: hand;" />
+      <HBox layoutX="458.0" layoutY="14.0" prefHeight="39.0" prefWidth="274.0" spacing="10.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: transparent;" text="   Puzzles" textFill="#ecf2ba" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: transparent;" text="Player" textFill="#f2f4bf" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: transparent;" text="GiftBox" textFill="#eff4be" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="77.0" style="-fx-background-color: transparent;" text="LeaderBoard" textFill="#f0f6b1" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" style="-fx-background-color: transprent;" text="Level" textFill="#e7eb85" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="61.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Home" textFill="#f8f8f8" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Help" textFill="#fbfafa" />
+            <Button mnemonicParsing="false" onAction="#RegisterPage" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Register" textFill="#f8f4f4" />
+            <Button mnemonicParsing="false" onAction="#LoginPage" prefHeight="25.0" prefWidth="74.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Login" textFill="#f6f3f3" />
          </children>
       </HBox>
-      <HBox layoutX="312.0" layoutY="14.0" prefHeight="39.0" prefWidth="274.0" spacing="10.0">
-         <children>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="61.0" style="-fx-background-color: transparent;" text="Home" textFill="#f8f8f8" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" style="-fx-background-color: transparent;" text="Help" textFill="#fbfafa" />
-            <Button mnemonicParsing="false" onAction="#RegisterPage" style="-fx-background-color: transparent;" text="Register" textFill="#f8f4f4" />
-            <Button mnemonicParsing="false" onAction="#LoginPage" prefHeight="25.0" prefWidth="74.0" style="-fx-background-color: transparent;" text="Login" textFill="#f6f3f3" />
-         </children>
-      </HBox>
+      <Button layoutX="595.0" layoutY="458.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" style="-fx-background-color: transprent; -fx-cursor: hand;" text="Level" textFill="#e7eb85" />
+      <Button layoutX="458.0" layoutY="459.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="96.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="LeaderBoard" textFill="#f0f6b1" />
+      <Button layoutX="200.0" layoutY="458.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Player" textFill="#f2f4bf" />
+      <Button layoutX="326.0" layoutY="459.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="GiftBox" textFill="#eff4be" />
+      <Button layoutX="76.0" layoutY="456.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="About Us" textFill="#ecf2ba" />
    </children>
 </AnchorPane>
