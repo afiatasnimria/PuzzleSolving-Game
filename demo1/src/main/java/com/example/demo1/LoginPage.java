@@ -26,6 +26,7 @@ public class LoginPage {
                 Parent dashboard = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
                 Scene dashboardScene = new Scene(dashboard);
                 Stage window = (Stage) ((Button) event.getSource()).getScene().getWindow();
+                window.setTitle("Dashboard");
                 window.setScene(dashboardScene);
             } catch (Exception e) {
                 e.printStackTrace();
