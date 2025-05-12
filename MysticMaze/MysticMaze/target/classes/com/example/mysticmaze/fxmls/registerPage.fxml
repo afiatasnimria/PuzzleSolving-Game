@@ -14,19 +14,19 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysticmaze.controllers.RegisterPageController">
+<AnchorPane prefHeight="513.0" prefWidth="761.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysticmaze.controllers.RegisterPageController">
 
    <children>
 
       <!-- Fullscreen Background -->
-      <ImageView fitHeight="600.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="false">
+      <ImageView fitHeight="522.0" fitWidth="761.0" pickOnBounds="true" preserveRatio="false">
          <image>
             <Image url="@../images/log.png" />
          </image>
       </ImageView>
 
       <!-- Glass Container -->
-      <VBox alignment="TOP_CENTER" layoutX="172.0" layoutY="119.0" prefHeight="403.0" prefWidth="397.0" spacing="15.0" style="-fx-background-color: rgba(255,255,255,0.08); -fx-background-radius: 20; -fx-padding: 30;">
+      <VBox alignment="TOP_CENTER" layoutX="169.0" layoutY="87.0" prefHeight="403.0" prefWidth="397.0" spacing="15.0" style="-fx-background-color: rgba(255,255,255,0.08); -fx-background-radius: 20; -fx-padding: 30;">
          <effect>
             <DropShadow color="#00000088" radius="15.0" />
          </effect>
