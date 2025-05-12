@@ -13,12 +13,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysticmaze.controllers.LoginPageController">
+<AnchorPane prefHeight="513.0" prefWidth="761.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysticmaze.controllers.LoginPageController">
 
    <children>
 
       <!-- Background Image -->
-      <ImageView fitHeight="600.0" fitWidth="900.0" preserveRatio="false">
+      <ImageView fitHeight="513.0" fitWidth="761.0" preserveRatio="false">
          <image>
             <Image url="@../images/log.png" />
          </image>
