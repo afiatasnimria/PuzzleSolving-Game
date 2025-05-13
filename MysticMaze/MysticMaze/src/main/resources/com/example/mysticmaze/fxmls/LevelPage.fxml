@@ -5,14 +5,28 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysticmaze.controllers.LevelController">
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysticmaze.controllers.LevelController">
-   <children>
-      <ImageView fitHeight="427.0" fitWidth="630.0" layoutX="-10.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/log.png" />
-         </image>
-      </ImageView>
-      <Button layoutX="83.0" layoutY="70.0" mnemonicParsing="false" onAction="#handleBack" style="-fx-background-color: transparent;" text="Back" textFill="#f2eeee" />
-   </children>
+   <!-- Background -->
+   <ImageView fitHeight="600" fitWidth="800" preserveRatio="false">
+      <image>
+         <Image url="@../images/log.png" />
+      </image>
+   </ImageView>
+
+   <!-- Back Button -->
+   <Button fx:id="backBtn" layoutX="30" layoutY="30" prefHeight="35" prefWidth="160" text="⟵ Return to Realm" />
+
+   <!-- Left Column -->
+   <Button fx:id="level1Btn" layoutX="150" layoutY="150" prefHeight="40" prefWidth="200" text="🌲 Whispering Woods" />
+   <Button fx:id="level3Btn" layoutX="150" layoutY="210" prefHeight="40" prefWidth="200" text="🔥 Ember Peak" />
+   <Button fx:id="level5Btn" layoutX="150" layoutY="270" prefHeight="40" prefWidth="200" text="🌌 Twilight Path" />
+   <Button fx:id="level7Btn" layoutX="150" layoutY="330" prefHeight="40" prefWidth="200" text="⚡ Stormspire" />
+
+   <!-- Right Column -->
+   <Button fx:id="level2Btn" layoutX="450" layoutY="150" prefHeight="40" prefWidth="200" text="🪦 Cursed Cavern" />
+   <Button fx:id="level4Btn" layoutX="450" layoutY="210" prefHeight="40" prefWidth="200" text="🌊 Silent Depths" />
+   <Button fx:id="level6Btn" layoutX="450" layoutY="270" prefHeight="40" prefWidth="200" text="🧊 Frozen Hollow" />
+   <Button fx:id="level8Btn" layoutX="450" layoutY="330" prefHeight="40" prefWidth="200" text="🦴 Necro Keep" />
+
 </AnchorPane>
