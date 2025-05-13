@@ -32,7 +32,7 @@ public class RegisterPageController {
     @FXML
     private void handleBack(ActionEvent event) {
         try {
-            Parent loginRoot = FXMLLoader.load(getClass().getResource("com/example/mysticmaze/fxmls/HomePage.fxml"));
+            Parent loginRoot = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/HomePage.fxml"));
             Scene loginScene = new Scene(loginRoot);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(loginScene);
