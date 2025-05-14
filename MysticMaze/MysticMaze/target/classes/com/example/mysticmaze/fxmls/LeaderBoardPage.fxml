@@ -84,6 +84,7 @@
                      -fx-border-color: #00ffff;
                      -fx-border-radius: 14;
                      -fx-border-width: 2px;
+                     -fx-cursor: hand;
                      -fx-effect: dropshadow(gaussian, #00ffff, 10, 0.6, 0, 0);" />
    </children>
 </AnchorPane>
