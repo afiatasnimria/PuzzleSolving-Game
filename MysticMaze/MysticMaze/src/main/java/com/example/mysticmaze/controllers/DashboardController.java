@@ -20,6 +20,7 @@ public class DashboardController {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(loginScene);
         } catch (IOException e) {
+
             e.printStackTrace();
         }
     }}

@@ -1,15 +1,22 @@
 package com.example.mysticmaze.controllers;
 
 import javafx.animation.*;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.Glow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -18,6 +25,15 @@ public class LevelController {
     @FXML private Button level1Btn, level2Btn, level3Btn, level4Btn;
     @FXML private Button level5Btn, level6Btn, level7Btn, level8Btn;
     @FXML private Button backBtn;
+
+    @FXML
+    private void handleBack(ActionEvent event) throws IOException {
+        Parent homeRoot = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/HomePage.fxml"));
+        Scene homeScene = new Scene(homeRoot);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(homeScene);
+        stage.show();
+    }
 
     @FXML
     public void initialize() {
@@ -46,27 +62,23 @@ public class LevelController {
         btn.setFont(Font.font("Palatino Linotype", 15));
         btn.setTextFill(Color.WHITE);
 
-        // Add border and increase background opacity for visibility
         btn.setStyle(
-                "-fx-background-color: rgba(30, 30, 30, 0.75);" +  // slightly more opaque
+                "-fx-background-color: rgba(30, 30, 30, 0.75);" +
                         "-fx-background-radius: 10;" +
-                        "-fx-border-color: rgba(255, 255, 255, 0.2);" +    // soft white border
+                        "-fx-border-color: rgba(255, 255, 255, 0.2);" +
                         "-fx-border-width: 1.5;" +
                         "-fx-border-radius: 10;"
         );
 
-        // Base glow
         Glow glow = new Glow(0.3);
         btn.setEffect(glow);
 
-        // On-hover shadow with color
         DropShadow hoverShadow = new DropShadow(18, glowColor);
         hoverShadow.setOffsetX(0);
         hoverShadow.setOffsetY(0);
         hoverShadow.setSpread(0.3);
         hoverShadow.setRadius(20);
 
-        // Hover effects
         btn.setOnMouseEntered(e -> {
             btn.setEffect(hoverShadow);
             btn.setScaleX(1.05);
@@ -79,7 +91,6 @@ public class LevelController {
             btn.setScaleY(1.0);
         });
     }
-
 
     private void styleBackButton(Button btn) {
         btn.setFont(Font.font("Georgia", 14));
@@ -118,7 +129,7 @@ public class LevelController {
             animation.setDelay(Duration.millis(delay));
             animation.play();
 
-            delay += 300; // delay each button
+            delay += 300;
         }
     }
 
@@ -131,6 +142,4 @@ public class LevelController {
     @FXML private void handleLevel6() { System.out.println("Entering Frozen Hollow..."); }
     @FXML private void handleLevel7() { System.out.println("Entering Stormspire..."); }
     @FXML private void handleLevel8() { System.out.println("Entering Necro Keep..."); }
-
-    @FXML private void handleBack() { System.out.println("Returning to Realm Selection..."); }
 }
