@@ -1,46 +1,58 @@
-# Mystic Maze 
+# Mystic Maze
 
-_A short description of your project and its purpose._
+Mystic Maze is a team-based 2D multiplayer puzzle-hunting game designed to engage players in completing levels filled with riddles, puzzles, and challenges. It offers teamwork-based gameplay with hints, leaderboards, and special powers.
 
 ## Features
 
 ### General
-- Feature 1 (e.g., Registration, Login, etc.)
-- Feature 2 (e.g., Profile update)
+- Multiplayer team competition
+- Player profile management
 
-### Users
-- Feature 1 (e.g., Join game, select character)
-- Feature 2 (e.g., See leaderboard, etc.)
+### Players
+- Join/Host rooms
+- Compete in puzzles and riddles
+- Use special powers during challenges
+- View rankings and leaderboard
 
-### Admin
-- Feature 1 (e.g., Manage players)
-- Feature 2 (e.g., Monitor games)
+### Admin/Moderators
+- Manage rooms and players
+- Monitor reports and feedback
+- Manage puzzle levels
 
 ## Technologies Used
 
 ### Frontend
-- Technology 1 (e.g., JavaFX, ReactJS)
+- JavaFX (with SceneBuilder)
 
 ### Backend
-- Technology 1 (e.g., Spring Boot, Java)
-- Technology 2 (e.g., MySQL Database)
+- Java (Socket Programming)
+- MySQL (Database)
 
 ### Others
-- Tools or services (e.g., Docker, Firebase)
+- XAMPP (Local Server for MySQL)
+- IntelliJ IDEA
 
 ## Class Diagram
 
-_A clear class diagram image or description._
+![Class Diagram](docs/class-diagram.png)
 
-![Class Diagram](path-to-your-class-diagram.png)
+
+## System Diagram
+
+![Class Diagram](docs/class-diagram.png)
+
 
 ## Setup Instructions
 
-1. Clone the repo
-2. Install dependencies
-3. Run frontend & backend servers
-4. Setup the database (provide SQL script link if needed)
+1. Clone the repository.
+2. Import the project in IntelliJ IDEA.
+3. Setup the MySQL database using provided SQL scripts.
+4. Run the server.
+5. Launch the client.
 
-## License
+### Conclusion 
 
-MIT License or your selected license.
+
+Mystic Maze aims to provide an engaging and interactive multiplayer experience where teamwork, problem-solving, and strategy come together in a dynamic 2D puzzle environment. This project showcases the integration of JavaFX, socket programming, and MySQL to create a seamless game experience while maintaining an efficient backend infrastructure.
+Through this project, we also explored key aspects of multiplayer networking, real-time data synchronization, and user experience design
+
