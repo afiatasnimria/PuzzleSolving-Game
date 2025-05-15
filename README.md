@@ -39,7 +39,7 @@ Mystic Maze is a team-based 2D multiplayer puzzle-hunting game designed to engag
 
 ## System Diagram
 
-![Class Diagram](docs/class-diagram.png)
+![System Diagram](docs/class-diagram.png)
 
 
 ## Setup Instructions
