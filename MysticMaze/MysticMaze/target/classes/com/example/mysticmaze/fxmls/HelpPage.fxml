@@ -13,6 +13,6 @@
             <Image url="@../images/log.png" />
          </image>
       </ImageView>
-      <Button layoutX="94.0" layoutY="70.0" mnemonicParsing="false" onAction="#handleBack" style="-fx-background-color: transparent;" text="back" textFill="#e1dada" />
+      <Button layoutX="94.0" layoutY="70.0" mnemonicParsing="false" onAction="#handleBack" style="-fx-background-color: transparent; -fx-cursor: hand;" text="back" textFill="#e1dada" />
    </children>
 </AnchorPane>

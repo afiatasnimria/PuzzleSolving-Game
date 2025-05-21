@@ -21,7 +21,7 @@ public class HomePageController {
     }
 
     public void LoginPage(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/mysticmaze/fxmls/loginPage.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/mysticmaze/fxmls/progress_page.fxml"));
 
         System.out.println(fxmlLoader);
         Scene scene = new Scene(fxmlLoader.load());
