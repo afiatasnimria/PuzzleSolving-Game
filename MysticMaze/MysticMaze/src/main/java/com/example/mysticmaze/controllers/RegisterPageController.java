@@ -41,6 +41,17 @@ public class RegisterPageController {
         }
     }
 
+    private void LoginPage(ActionEvent event) {
+        try {
+            Parent loginRoot = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/loginPage.fxml"));
+            Scene loginScene = new Scene(loginRoot);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(loginScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @FXML
     private void handleRegisterAction(ActionEvent event) throws IOException {
         String username = usernameField.getText();
