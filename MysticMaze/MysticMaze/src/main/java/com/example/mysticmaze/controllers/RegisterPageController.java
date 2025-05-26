@@ -104,4 +104,5 @@ public class RegisterPageController {
         alert.show();
     }
 
+
 }
