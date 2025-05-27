@@ -31,9 +31,9 @@
 
             <HBox spacing="20.0">
                <children>
-                  <Button mnemonicParsing="false" style="-fx-background-radius: 12;                                        -fx-background-color: linear-gradient(#662d91, #a066d1);                                        -fx-text-fill: #ffffff;                                        -fx-font-weight: bold;                                        -fx-font-style: italic;                                        -fx-font-size: 17px;                                        -fx-effect: dropshadow(gaussian, #aa78f5, 6, 0.8, 0, 2);                                        -fx-cursor: hand;" text="Start game" textAlignment="JUSTIFY" />
+                  <Button mnemonicParsing="false" style="-fx-background-radius: 12; -fx-background-color: linear-gradient(#662d91, #a066d1);                                        -fx-text-fill: #ffffff;                                        -fx-font-weight: bold;                                        -fx-font-style: italic;                                        -fx-font-size: 17px;                                        -fx-effect: dropshadow(gaussian, #aa78f5, 6, 0.8, 0, 2);                                        -fx-cursor: hand;" text="Start game" textAlignment="JUSTIFY" />
 
-                  <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="137.0" style="-fx-background-radius: 12;                                        -fx-background-color: linear-gradient(#2e0059, #7a3adf);                                        -fx-text-fill: #ffffff;                                        -fx-font-size: 17px;                                        -fx-font-weight: bold;                                        -fx-effect: dropshadow(gaussian, #a48de3, 6, 0.8, 0, 2);                                        -fx-cursor: hand;" text="Join a team" textAlignment="CENTER" />
+                  <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="137.0" style="-fx-background-radius: 12;-fx-background-color: linear-gradient(#2e0059, #7a3adf);                                        -fx-text-fill: #ffffff;                                        -fx-font-size: 17px;                                        -fx-font-weight: bold;                                        -fx-effect: dropshadow(gaussian, #a48de3, 6, 0.8, 0, 2);                                        -fx-cursor: hand;" text="Join a team" textAlignment="CENTER" />
 
                </children>
             </HBox>
@@ -48,26 +48,26 @@
       <!-- Navigation Buttons Top Right -->
       <HBox layoutX="423.0" layoutY="30.0" prefHeight="31.0" prefWidth="309.0" spacing="10.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="61.0" style="-fx-background-color: transparent; -fx-text-fill: #f8f8f8;                                -fx-font-weight: bold; -fx-cursor: hand;" text="Home" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="61.0" style="-fx-background-color: transparent; -fx-text-fill: #f8f8f8;  -fx-font-weight: bold; -fx-cursor: hand;" text="Home" />
 
-            <Button mnemonicParsing="false" onAction="#Help" prefHeight="25.0" prefWidth="47.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0;                                -fx-font-weight: bold; -fx-cursor: hand;" text="Help" />
+            <Button mnemonicParsing="false" onAction="#Help" prefHeight="25.0" prefWidth="47.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0;-fx-font-weight: bold; -fx-cursor: hand;" text="Help" />
             <Button alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#ProfilePage" prefHeight="19.0" prefWidth="66.0" style="-fx-background-color: transparent; -fx-text-fill: #fdfcc4; -fx-font-weight: bold; -fx-cursor: hand;">
-               <text>Profile</text>
+               <text>
+                  Profile
+               </text>
             </Button>
-
-
          </children>
       </HBox>
 
       <!-- Bottom Buttons -->
-      <Button alignment="BOTTOM_CENTER" layoutX="76.0" layoutY="426.0" mnemonicParsing="false" onAction="#AboutUs" prefHeight="55.0" prefWidth="78.0" style="-fx-background-color: transparent; -fx-text-fill: #f5f2ba;                        -fx-font-weight: bold; -fx-cursor: hand;" text="About Us" />
+      <Button alignment="BOTTOM_CENTER" layoutX="76.0" layoutY="426.0" mnemonicParsing="false" onAction="#AboutUs" prefHeight="55.0" prefWidth="78.0" style="-fx-background-color: transparent; -fx-text-fill: #f5f2ba; -fx-font-weight: bold; -fx-cursor: hand;" text="About Us" />
 
-      <Button alignment="BOTTOM_CENTER" layoutX="200.0" layoutY="419.0" mnemonicParsing="false" onAction="#Player" prefHeight="64.0" prefWidth="66.0" style="-fx-background-color: transparent; -fx-text-fill: #f4f8b5;                        -fx-font-weight: bold; -fx-cursor: hand;" text="Player" />
+      <Button alignment="BOTTOM_CENTER" layoutX="200.0" layoutY="419.0" mnemonicParsing="false" onAction="#Player" prefHeight="64.0" prefWidth="66.0" style="-fx-background-color: transparent; -fx-text-fill: #f4f8b5;-fx-font-weight: bold; -fx-cursor: hand;" text="Player" />
 
-      <Button alignment="BOTTOM_CENTER" layoutX="326.0" layoutY="420.0" mnemonicParsing="false" onAction="#GiftBox" prefHeight="64.0" prefWidth="66.0" style="-fx-background-color: transparent; -fx-text-fill: #f4f9bb;                        -fx-font-weight: bold; -fx-cursor: hand;" text="GiftBox" />
+      <Button alignment="BOTTOM_CENTER" layoutX="326.0" layoutY="420.0" mnemonicParsing="false" onAction="#GiftBox" prefHeight="64.0" prefWidth="66.0" style="-fx-background-color: transparent; -fx-text-fill: #f4f9bb;               -fx-font-weight: bold; -fx-cursor: hand;" text="GiftBox" />
 
-      <Button alignment="BOTTOM_CENTER" layoutX="458.0" layoutY="420.0" mnemonicParsing="false" onAction="#LeaderBoard" prefHeight="64.0" prefWidth="96.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f6b1;                        -fx-font-weight: bold; -fx-cursor: hand;" text="LeaderBoard" />
+      <Button alignment="BOTTOM_CENTER" layoutX="458.0" layoutY="420.0" mnemonicParsing="false" onAction="#LeaderBoard" prefHeight="64.0" prefWidth="96.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f6b1;-fx-font-weight: bold; -fx-cursor: hand;" text="LeaderBoard" />
 
-      <Button alignment="BOTTOM_CENTER" layoutX="595.0" layoutY="419.0" mnemonicParsing="false" onAction="#Level" prefHeight="64.0" prefWidth="83.0" style="-fx-background-color: transparent; -fx-text-fill: #e7eb85;                        -fx-font-weight: bold; -fx-cursor: hand;" text="Level" />
+      <Button alignment="BOTTOM_CENTER" layoutX="595.0" layoutY="419.0" mnemonicParsing="false" onAction="#Level" prefHeight="64.0" prefWidth="83.0" style="-fx-background-color: transparent; -fx-text-fill: #e7eb85;-fx-font-weight: bold; -fx-cursor: hand;" text="Level" />
    </children>
 </AnchorPane>
