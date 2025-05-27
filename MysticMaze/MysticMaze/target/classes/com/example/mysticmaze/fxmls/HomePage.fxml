@@ -13,7 +13,7 @@
 <AnchorPane prefHeight="503.0" prefWidth="755.0" style="-fx-background-image: url('../images/background.png');" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysticmaze.controllers.HomePageController">
 
     <children>
-        <ImageView fitHeight="513.0" fitWidth="761.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="513.0" fitWidth="755.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../images/background.png" />
             </image>

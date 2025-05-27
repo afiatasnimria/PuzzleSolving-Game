@@ -41,15 +41,16 @@ public class RegisterPageController {
         }
     }
 
-    private void LoginPage(ActionEvent event) {
-        try {
-            Parent loginRoot = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/loginPage.fxml"));
-            Scene loginScene = new Scene(loginRoot);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(loginScene);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void LoginPage(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/mysticmaze/fxmls/loginPage.fxml"));
+
+        System.out.println(fxmlLoader);
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setResizable(false);
+        stage.setTitle("Puzzle solver");
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
@@ -74,7 +75,7 @@ public class RegisterPageController {
 
         DBUtil.insertUser(newUser);
         showAlert("Registration successful!");
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/mysticmaze/fxmls/DashboardPage.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/mysticmaze/fxmls/loginPage.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -103,5 +104,6 @@ public class RegisterPageController {
         alert.setContentText(message);
         alert.show();
     }
+
 
 }
