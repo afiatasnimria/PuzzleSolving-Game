@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.jigsaw.GameController">
+    <top>
+        <HBox spacing="10">
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+            <Button fx:id="backButton" text="Back" onAction="#handleBack" />
+            <Label fx:id="titleLabel" text="Jigsaw Puzzle Game" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+            <Region HBox.hgrow="ALWAYS"/>
+            <ComboBox fx:id="sizeSelector" promptText="Select size (e.g., 3x3)" onAction="#handleSizeChange" />
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="true">
+            <Pane fx:id="puzzlePane" prefWidth="600" prefHeight="600" style="-fx-border-color: black;" />
+        </ScrollPane>
+    </center>
+
+    <right>
+        <VBox spacing="10">
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+            <Label text="Player Progress" style="-fx-font-weight: bold;" />
+            <Label fx:id="player1Progress" text="Player 1: 0%" />
+            <Label fx:id="player2Progress" text="Player 2: 0%" />
+            <Separator />
+            <Label text="Info" style="-fx-font-weight: bold;" />
+            <Label fx:id="moveCounter" text="Moves: 0" />
+            <Label fx:id="tipCounter" text="Tips Used: 0" />
+            <Label fx:id="timerLabel" text="Time: 00:00" />
+            <Label fx:id="bestTimeLabel" text="Best Time: N/A" />
+            <Button fx:id="tipButton" text="Show Tip" onAction="#handleShowTip" />
+        </VBox>
+    </right>
+</BorderPane>

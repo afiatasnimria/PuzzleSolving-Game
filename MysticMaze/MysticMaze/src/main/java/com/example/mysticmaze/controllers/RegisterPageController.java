@@ -74,7 +74,7 @@ public class RegisterPageController {
 
         DBUtil.insertUser(newUser);
         showAlert("Registration successful!");
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/mysticmaze/fxmls/DashboardPage.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/mysticmaze/fxmls/loginPage.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
