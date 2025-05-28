@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.guessgame.HelloController">
+
+    <center>
+        <VBox alignment="CENTER" spacing="20" style="-fx-background-color: #f4f4f4;" BorderPane.alignment="CENTER">
+            <padding><Insets top="40" right="20" bottom="40" left="20"/></padding>
+
+            <Label fx:id="sequenceLabel" text="What comes next: 1, 8, 27"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold;" />
+
+            <TextField fx:id="answerField" promptText="Enter your answer" maxWidth="200"/>
+
+            <HBox spacing="15" alignment="CENTER">
+                <Button fx:id="submitButton" text="Submit"
+                        style="-fx-background-color: #6200ea; -fx-text-fill: white;" />
+                <Button fx:id="hintButton" text="Hint" />
+            </HBox>
+
+            <Label fx:id="timerLabel" text="Time: 0s" style="-fx-font-size: 14px;" />
+        </VBox>
+    </center>
+
+    <right>
+        <VBox spacing="20" alignment="TOP_CENTER"
+              style="-fx-background-color: #3700b3;"
+              prefWidth="200"
+              BorderPane.alignment="CENTER">
+            <padding><Insets top="30" left="10" right="10" bottom="10"/></padding>
+
+            <Label fx:id="progressPlayer1" text="Player 1 Progress: 0"
+                   style="-fx-text-fill: white; -fx-font-size: 14px;" />
+            <Label fx:id="progressPlayer2" text="Player 2 Progress: 0"
+                   style="-fx-text-fill: white; -fx-font-size: 14px;" />
+            <Label fx:id="bestSolveLabel" text="Best Move: --"
+                   style="-fx-text-fill: white; -fx-font-size: 14px;" />
+        </VBox>
+    </right>
+
+</BorderPane>
