@@ -1,12 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1"
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.text.*?>
+
+<?import javafx.scene.image.Image?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.mysticmaze.controllers.JoinTeamController"
-            prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #fff5fb;">
-    <children>
-        <Label fx:id="teamNameLabel" layoutX="100.0" layoutY="180.0"
-               style="-fx-font-size: 20px; -fx-text-fill: #800080;" />
-    </children>
+            prefWidth="800" prefHeight="600"
+            style="-fx-background-image: url('../images/join_team_bg.png'); -fx-background-size: cover;">
+    <!-- Background image -->
+    <ImageView fitHeight="513.0" fitWidth="769.0" preserveRatio="false">
+        <image>
+            <Image url="@../images/log.png" />
+        </image>
+    </ImageView>
+
+    <VBox layoutX="200" layoutY="100" spacing="20" alignment="CENTER">
+        <children>
+            <Label text="Request a Teammate"
+                   style="-fx-font-size: 34px; -fx-font-weight: bold; -fx-text-fill: #ffffff;
+                          -fx-effect: dropshadow(gaussian, #a478f9, 8, 0.9, 0, 0);" />
+
+            <TextField fx:id="teammateInput"
+                       promptText="Enter teammate username or ID"
+                       prefWidth="300"
+                       style="-fx-background-radius: 10; -fx-font-size: 16px;" />
+
+            <HBox spacing="15">
+                <children>
+                    <Button text="Check Status"
+                            onAction="#checkStatus"
+                            style="-fx-background-color: #7a3adf; -fx-text-fill: white;
+                                   -fx-background-radius: 10; -fx-font-weight: bold;
+                                   -fx-cursor: hand;" />
+
+                    <Button text="Send Team Request"
+                            onAction="#sendRequest"
+                            style="-fx-background-color: linear-gradient(#4c00b0, #9f6eea);
+                                   -fx-text-fill: #ffffff; -fx-font-weight: bold;
+                                   -fx-background-radius: 12; -fx-cursor: hand;" />
+                </children>
+            </HBox>
+
+            <Label fx:id="statusLabel"
+                   textFill="#fdfdfd"
+                   style="-fx-font-size: 16px; -fx-effect: dropshadow(gaussian, #9966ff, 6, 0.7, 0, 0);" />
+        </children>
+    </VBox>
 </AnchorPane>
