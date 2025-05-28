@@ -15,12 +15,12 @@
    </ImageView>
 
    <!-- Back Button -->
-   <Button fx:id="backBtn" layoutX="30" layoutY="30" prefHeight="35" prefWidth="160" text="⟵ Return to Realm" />
+   <Button fx:id="backBtn" layoutX="30" layoutY="30" onAction="#handleBack" prefHeight="35" prefWidth="160" text="⟵ Return to Realm" />
 
    <!-- Left Column -->
    <Button fx:id="level1Btn" layoutX="150" layoutY="150" prefHeight="40" prefWidth="200" text="🌲 Whispering Woods" />
    <Button fx:id="level3Btn" layoutX="150" layoutY="210" prefHeight="40" prefWidth="200" text="🔥 Ember Peak" />
-   <Button fx:id="level5Btn" layoutX="150" layoutY="270" prefHeight="40" prefWidth="200" text="🌌 Twilight Path" />
+   <Button fx:id="level5Btn" layoutX="150" layoutY="270" onAction="#tohButton" prefHeight="40" prefWidth="200" text="🌌 Tower Of Hanoi " />
    <Button fx:id="level7Btn" layoutX="150" layoutY="330" prefHeight="40" prefWidth="200" text="⚡ Stormspire" />
 
    <!-- Right Column -->

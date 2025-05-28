@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.Glow;
@@ -28,11 +29,15 @@ public class LevelController {
 
     @FXML
     private void handleBack(ActionEvent event) throws IOException {
-        Parent homeRoot = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/HomePage.fxml"));
-        Scene homeScene = new Scene(homeRoot);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(homeScene);
-        stage.show();
+        try {
+          //  System.out.println("cliced");
+            Parent loginRoot = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/HomePage.fxml"));
+            Scene loginScene = new Scene(loginRoot);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(loginScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -132,6 +137,27 @@ public class LevelController {
             delay += 300;
         }
     }
+    public void tohButton(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/mysticmaze/fxmls/TohPage.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setResizable(false);
+            stage.setTitle("Player");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Optionally show an alert to the user:
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Failed to load page");
+            alert.setContentText("Could not load TohPage.fxml.");
+            alert.showAndWait();
+        }
+    }
+
 
     // 🎮 Level actions
     @FXML private void handleLevel1() { System.out.println("Entering Whispering Woods..."); }

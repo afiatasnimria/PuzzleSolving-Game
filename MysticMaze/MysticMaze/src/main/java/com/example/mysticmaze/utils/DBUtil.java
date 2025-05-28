@@ -1,5 +1,6 @@
 package com.example.mysticmaze.utils;
 
+import com.example.mysticmaze.models.Puzzle;
 import com.example.mysticmaze.models.User;
 
 import java.nio.charset.StandardCharsets;
@@ -84,5 +85,45 @@ public class DBUtil {
 
     }
 
+
+    // puzzle related
+    public static Puzzle getTowerOfHanoiPuzzle() {
+        String query = "SELECT * FROM puzzles WHERE type = 'visual'";
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            ResultSet rs = stmt.executeQuery();
+            //System.out.println(rs);
+
+            if (rs.next()) {
+                String puzzleData = rs.getString("puzzle_data");
+                // level, type, puzzle_data,solution, minimum_moves, minimum_time_taken, difficulty
+
+              //  System.out.println("id : "+rs.getInt("puzzle_id"));
+               // System.out.println("level : "+rs.getInt("level"));
+                //System.out.println("type "+  rs.getString("type"));
+                //System.out.println(rs.getString("puzzle_data"));
+                //System.out.println(rs.getString("solution"));
+                //System.out.println(rs.getInt("minimum_moves"));
+                //System.out.println(rs.getFloat("minimum_time_taken"));
+                //System.out.println(rs.getString("difficulty"));
+
+                return new Puzzle(
+                        rs.getInt("puzzle_id"),
+                        rs.getInt("level"),
+                        rs.getString("type"),
+                        rs.getString("puzzle_data"),
+                        rs.getString("solution"),
+                        rs.getInt("minimum_moves"),
+                        rs.getInt("minimum_time_taken"),
+                        rs.getString("difficulty")
+                );
+            }
+
+        } catch (SQLException  e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 }
