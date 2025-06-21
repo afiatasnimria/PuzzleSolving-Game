@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 27, 2025 at 07:50 PM
+-- Generation Time: May 30, 2025 at 10:01 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -78,8 +78,18 @@ CREATE TABLE `puzzles` (
   `level` int(11) NOT NULL,
   `type` enum('logic','visual','pattern','text','riddle') NOT NULL,
   `puzzle_data` text NOT NULL,
-  `solution` text NOT NULL
+  `solution` text NOT NULL,
+  `minimum_moves` int(11) DEFAULT NULL,
+  `minimum_time_taken` decimal(10,0) DEFAULT NULL,
+  `difficulty` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `puzzles`
+--
+
+INSERT INTO `puzzles` (`puzzle_id`, `level`, `type`, `puzzle_data`, `solution`, `minimum_moves`, `minimum_time_taken`, `difficulty`) VALUES
+(1, 2, 'visual', '6', 'transfar_all_disk_from_src_to_dest', 0, 0, 'Hard');
 
 -- --------------------------------------------------------
 
@@ -244,7 +254,7 @@ ALTER TABLE `game_sessions`
 -- AUTO_INCREMENT for table `puzzles`
 --
 ALTER TABLE `puzzles`
-  MODIFY `puzzle_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `puzzle_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `puzzle_hints`

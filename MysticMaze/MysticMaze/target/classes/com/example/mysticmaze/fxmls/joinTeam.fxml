@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.text.*?>
-
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.mysticmaze.controllers.JoinTeamController"
-            prefWidth="800" prefHeight="600"
-            style="-fx-background-image: url('../images/join_team_bg.png'); -fx-background-size: cover;">
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="503.0" prefWidth="769.0" style="-fx-background-image: url('../images/join_team_bg.png'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysticmaze.controllers.JoinTeamController">
     <!-- Background image -->
     <ImageView fitHeight="513.0" fitWidth="769.0" preserveRatio="false">
         <image>
@@ -18,36 +17,21 @@
         </image>
     </ImageView>
 
-    <VBox layoutX="200" layoutY="100" spacing="20" alignment="CENTER">
+    <VBox alignment="CENTER" layoutX="200" layoutY="100" spacing="20">
         <children>
-            <Label text="Request a Teammate"
-                   style="-fx-font-size: 34px; -fx-font-weight: bold; -fx-text-fill: #ffffff;
-                          -fx-effect: dropshadow(gaussian, #a478f9, 8, 0.9, 0, 0);" />
+            <Label style="-fx-font-size: 34px; -fx-font-weight: bold; -fx-text-fill: #ffffff;                           -fx-effect: dropshadow(gaussian, #a478f9, 8, 0.9, 0, 0);" text="Request a Teammate" />
 
-            <TextField fx:id="teammateInput"
-                       promptText="Enter teammate username or ID"
-                       prefWidth="300"
-                       style="-fx-background-radius: 10; -fx-font-size: 16px;" />
+            <TextField fx:id="teammateInput" prefWidth="300" promptText="Enter teammate username or ID" style="-fx-background-radius: 10; -fx-font-size: 16px;" />
 
             <HBox spacing="15">
                 <children>
-                    <Button text="Check Status"
-                            onAction="#checkStatus"
-                            style="-fx-background-color: #7a3adf; -fx-text-fill: white;
-                                   -fx-background-radius: 10; -fx-font-weight: bold;
-                                   -fx-cursor: hand;" />
+                    <Button onAction="#checkStatus" style="-fx-background-color: #7a3adf; -fx-text-fill: white;                                    -fx-background-radius: 10; -fx-font-weight: bold;                                    -fx-cursor: hand;" text="Check Status" />
 
-                    <Button text="Send Team Request"
-                            onAction="#sendRequest"
-                            style="-fx-background-color: linear-gradient(#4c00b0, #9f6eea);
-                                   -fx-text-fill: #ffffff; -fx-font-weight: bold;
-                                   -fx-background-radius: 12; -fx-cursor: hand;" />
+                    <Button onAction="#sendRequest" style="-fx-background-color: linear-gradient(#4c00b0, #9f6eea);                                    -fx-text-fill: #ffffff; -fx-font-weight: bold;                                    -fx-background-radius: 12; -fx-cursor: hand;" text="Send Team Request" />
                 </children>
             </HBox>
 
-            <Label fx:id="statusLabel"
-                   textFill="#fdfdfd"
-                   style="-fx-font-size: 16px; -fx-effect: dropshadow(gaussian, #9966ff, 6, 0.7, 0, 0);" />
+            <Label fx:id="statusLabel" style="-fx-font-size: 16px; -fx-effect: dropshadow(gaussian, #9966ff, 6, 0.7, 0, 0);" textFill="#fdfdfd" />
         </children>
     </VBox>
 </AnchorPane>
