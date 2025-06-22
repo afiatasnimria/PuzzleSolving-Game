@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:controller="org.example.crossword.GameController"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            prefWidth="1000" prefHeight="700">
+
+    <center>
+        <GridPane fx:id="gridPane" hgap="5" vgap="5" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+        </GridPane>
+    </center>
+
+    <right>
+        <VBox spacing="10" alignment="TOP_LEFT">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <Label text="Time Elapsed:"/>
+            <Label fx:id="timerLabel" text="00:00:00"/>
+            <Separator/>
+            <Button fx:id="hintButton" text="Show Hint"/>
+            <Label text="Hints Used:"/>
+            <Label fx:id="hintsUsedLabel" text="0"/>
+            <Separator/>
+            <Label text="Progress:"/>
+            <Label fx:id="progressLabel" text="0 / 0"/>
+            <Separator/>
+            <Button fx:id="finishButton" text="Finish Game"/>
+        </VBox>
+    </right>
+
+</BorderPane>
