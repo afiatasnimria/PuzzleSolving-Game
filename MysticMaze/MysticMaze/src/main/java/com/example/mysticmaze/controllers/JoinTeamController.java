@@ -2,7 +2,14 @@ package com.example.mysticmaze.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class JoinTeamController {
 
@@ -16,33 +23,28 @@ public class JoinTeamController {
     private Button requestButton;
 
     @FXML
-    private void checkStatus(ActionEvent event) {
+    private void Join(ActionEvent event) throws IOException, IOException {
         String input = teammateInput.getText().trim();
         if (input.isEmpty()) {
-            statusLabel.setText("Please enter a username or ID.");
+            statusLabel.setText("Please enter Team Code");
             return;
         }
 
-        // Simulate status check (you can connect to real backend later)
         if (input.equalsIgnoreCase("Mystic1058")) {
             statusLabel.setText("✅ Mystic1058 is online and ready to team up!");
+
+            // Load JoinDashboard.fxml
+            Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/JoinDashboard.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setResizable(false);
+            stage.setTitle("Team Dashboard");
+            stage.setScene(new Scene(root));
+            stage.show();
+
         } else {
             statusLabel.setText("❌ " + input + " is currently offline.");
         }
     }
 
-    @FXML
-    private void sendRequest(ActionEvent event) {
-        String input = teammateInput.getText().trim();
-        if (input.isEmpty()) {
-            statusLabel.setText("Enter a teammate's name first.");
-            return;
-        }
 
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Team Request Sent");
-        alert.setHeaderText(null);
-        alert.setContentText("A magical request has been sent to " + input + "!");
-        alert.show();
-    }
 }

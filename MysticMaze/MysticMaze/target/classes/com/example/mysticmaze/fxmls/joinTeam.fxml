@@ -25,7 +25,7 @@
 
             <HBox alignment="CENTER" prefHeight="45.0" prefWidth="327.0" spacing="15">
                 <children>
-                    <Button alignment="CENTER" contentDisplay="CENTER" onAction="#checkStatus" prefHeight="41.0" prefWidth="91.0" style="-fx-background-color: #7a3adf; -fx-text-fill: white;                                    -fx-background-radius: 10; -fx-font-weight: bold;                                    -fx-cursor: hand;" text="Join" />
+                    <Button alignment="CENTER" contentDisplay="CENTER" onAction="#Join" prefHeight="41.0" prefWidth="91.0" style="-fx-background-color: #7a3adf; -fx-text-fill: white;                                    -fx-background-radius: 10; -fx-font-weight: bold;                                    -fx-cursor: hand;" text="Join" />
                 </children>
             </HBox>
 

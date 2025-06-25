@@ -1,14 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.mysticmaze.controllers.JoinDashboard"
-            prefHeight="400.0" prefWidth="600.0">
+<BorderPane fx:controller="com.example.mysticmaze.controllers.JoinDashboard"
+            xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx/17"
+            prefWidth="800" prefHeight="600">
 
-</AnchorPane>
+    <!-- Sidebar -->
+    <left>
+        <VBox spacing="10" prefWidth="250" style="-fx-background-color: #2c2c2c;">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+
+            <Label text="Team Members" style="-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold;" />
+
+            <!-- Player Status Cards -->
+            <VBox spacing="10">
+                <TitledPane text="Player 1" expanded="true">
+                    <VBox spacing="5">
+                        <padding>
+                            <Insets top="5" right="5" bottom="5" left="5"/>
+                        </padding>
+                        <Label fx:id="player1Moves" text="Moves: 0" style="-fx-text-fill: white;" />
+                        <Label fx:id="player1Time" text="Time: 00:00" style="-fx-text-fill: white;" />
+                        <Label fx:id="player1Status" text="Status: Ready" style="-fx-text-fill: #00ff00;" />
+                    </VBox>
+                </TitledPane>
+                <TitledPane text="Player 2" expanded="true">
+                    <VBox spacing="5">
+                        <padding>
+                            <Insets top="5" right="5" bottom="5" left="5"/>
+                        </padding>
+                        <Label fx:id="player2Moves" text="Moves: 0" style="-fx-text-fill: white;" />
+                        <Label fx:id="player2Time" text="Time: 00:00" style="-fx-text-fill: white;" />
+                        <Label fx:id="player2Status" text="Status: Waiting" style="-fx-text-fill: #ffff00;" />
+                    </VBox>
+                </TitledPane>
+                <TitledPane text="Player 3" expanded="true">
+                    <VBox spacing="5">
+                        <padding>
+                            <Insets top="5" right="5" bottom="5" left="5"/>
+                        </padding>
+                        <Label fx:id="player3Moves" text="Moves: 0" style="-fx-text-fill: white;" />
+                        <Label fx:id="player3Time" text="Time: 00:00" style="-fx-text-fill: white;" />
+                        <Label fx:id="player3Status" text="Status: Offline" style="-fx-text-fill: #ff0000;" />
+                    </VBox>
+                </TitledPane>
+            </VBox>
+
+            <!-- Message Area -->
+            <Label text="Team Chat" style="-fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 10 0 0 0;" />
+            <ScrollPane fitToWidth="true" prefHeight="200">
+                <VBox fx:id="chatBox" spacing="5" style="-fx-background-color: #444;">
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </padding>
+                    <Label text="Player1: Let's go!" wrapText="true" style="-fx-text-fill: white;" />
+                    <Label text="Player2: Ready!" wrapText="true" style="-fx-text-fill: white;" />
+                </VBox>
+            </ScrollPane>
+        </VBox>
+    </left>
+
+    <!-- Main Area -->
+    <center>
+        <StackPane alignment="CENTER">
+            <Button fx:id="startGameButton" text="Start Game"
+                    style="-fx-font-size: 18px; -fx-background-color: #7a3adf; -fx-text-fill: white; -fx-background-radius: 10;"
+                    prefWidth="180" prefHeight="50" />
+        </StackPane>
+    </center>
+
+</BorderPane>

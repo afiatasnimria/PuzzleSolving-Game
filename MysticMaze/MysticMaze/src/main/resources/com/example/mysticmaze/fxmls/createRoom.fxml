@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="500.0" prefWidth="750.0" style="-fx-background-image: url('../images/create_room_bg.png'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysticmaze.controllers.CreateRoom">
+<AnchorPane prefHeight="500.0" prefWidth="750.0" style="-fx-background-image: url('../images/create_room_bg.png'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysticmaze.controllers.CreateRoomController">
 
     <!-- Optional background image -->
     <ImageView fitHeight="500.0" fitWidth="750.0" preserveRatio="false">
