@@ -21,11 +21,11 @@ public class DashboardController {
         welcomeText.setText("Welcome to JavaFX Application!");
     }
 
-    public void StartGame(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/startGame.fxml"));
+    public void CreateTeam(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/createRoom.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setResizable(false);
-        stage.setTitle("Start Game");
+        stage.setTitle("Create a Team");
         stage.setScene(new Scene(root));
         stage.show();
     }

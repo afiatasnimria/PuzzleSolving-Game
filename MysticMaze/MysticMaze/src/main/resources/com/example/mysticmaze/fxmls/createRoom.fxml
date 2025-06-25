@@ -9,11 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="500.0" prefWidth="750.0"
-            style="-fx-background-image: url('../images/create_room_bg.png'); -fx-background-size: cover;"
-            xmlns="http://javafx.com/javafx/23.0.1"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.mysticmaze.controllers.CreateRoom">
+<AnchorPane prefHeight="500.0" prefWidth="750.0" style="-fx-background-image: url('../images/create_room_bg.png'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysticmaze.controllers.CreateRoom">
 
     <!-- Optional background image -->
     <ImageView fitHeight="500.0" fitWidth="750.0" preserveRatio="false">
@@ -26,33 +22,20 @@
         <children>
 
             <!-- Title -->
-            <Label text="Create a New Room"
-                   style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, #a478f9, 8, 0.9, 0, 0);" />
+            <Label style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, #a478f9, 8, 0.9, 0, 0);" text="Create a New Room" />
 
             <!-- Room Name Input -->
-            <TextField fx:id="roomNameField"
-                       prefWidth="300"
-                       promptText="Enter Room Name"
-                       style="-fx-background-radius: 10; -fx-font-size: 16px;" />
+            <TextField fx:id="roomNameField" prefWidth="300" promptText="Enter Room Name" style="-fx-background-radius: 10; -fx-font-size: 16px;" />
 
             <!-- Buttons -->
-            <HBox spacing="20">
+            <HBox alignment="CENTER" spacing="20">
                 <children>
-                    <Button fx:id="createRoomButton"
-                            text="Create Room"
-                            onAction="#createRoom"
-                            style="-fx-background-color: #7a3adf; -fx-text-fill: white; -fx-background-radius: 10; -fx-font-weight: bold; -fx-cursor: hand;" />
-
-                    <Button fx:id="startGameButton"
-                            text="Start Game"
-                            onAction="#startGame"
-                            style="-fx-background-color: linear-gradient(#4c00b0, #9f6eea); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 12; -fx-cursor: hand;" />
+                    <Button fx:id="createRoomButton" onAction="#createRoom" style="-fx-background-color: #7a3adf; -fx-text-fill: white; -fx-background-radius: 10; -fx-font-weight: bold; -fx-cursor: hand;" text="Create Room" />
                 </children>
             </HBox>
 
             <!-- Status Label -->
-            <Label fx:id="statusLabel"
-                   style="-fx-font-size: 16px; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, #9966ff, 6, 0.7, 0, 0);" />
+            <Label fx:id="statusLabel" style="-fx-font-size: 16px; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, #9966ff, 6, 0.7, 0, 0);" />
 
         </children>
     </VBox>
