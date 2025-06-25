@@ -19,15 +19,13 @@
 
     <VBox alignment="CENTER" layoutX="200" layoutY="100" spacing="20">
         <children>
-            <Label style="-fx-font-size: 34px; -fx-font-weight: bold; -fx-text-fill: #ffffff;                           -fx-effect: dropshadow(gaussian, #a478f9, 8, 0.9, 0, 0);" text="Request a Teammate" />
+            <Label style="-fx-font-size: 34px; -fx-font-weight: bold; -fx-text-fill: #ffffff;                           -fx-effect: dropshadow(gaussian, #a478f9, 8, 0.9, 0, 0);" text="Join a Existing Team" />
 
-            <TextField fx:id="teammateInput" prefWidth="300" promptText="Enter teammate username or ID" style="-fx-background-radius: 10; -fx-font-size: 16px;" />
+            <TextField fx:id="teammateInput" prefWidth="300" promptText="Enter the entry code" style="-fx-background-radius: 10; -fx-font-size: 16px;" />
 
-            <HBox spacing="15">
+            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="327.0" spacing="15">
                 <children>
-                    <Button onAction="#checkStatus" style="-fx-background-color: #7a3adf; -fx-text-fill: white;                                    -fx-background-radius: 10; -fx-font-weight: bold;                                    -fx-cursor: hand;" text="Check Status" />
-
-                    <Button onAction="#sendRequest" style="-fx-background-color: linear-gradient(#4c00b0, #9f6eea);                                    -fx-text-fill: #ffffff; -fx-font-weight: bold;                                    -fx-background-radius: 12; -fx-cursor: hand;" text="Send Team Request" />
+                    <Button alignment="CENTER" contentDisplay="CENTER" onAction="#checkStatus" prefHeight="41.0" prefWidth="91.0" style="-fx-background-color: #7a3adf; -fx-text-fill: white;                                    -fx-background-radius: 10; -fx-font-weight: bold;                                    -fx-cursor: hand;" text="Join" />
                 </children>
             </HBox>
 
