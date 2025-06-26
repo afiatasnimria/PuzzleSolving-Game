@@ -31,7 +31,7 @@
 
             <HBox spacing="20.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#CreateTeam" style="-fx-background-radius: 12; -fx-background-color: linear-gradient(#662d91, #a066d1); -fx-text-fill: #ffffff; -fx-font-weight: bold;  -fx-font-style: italic; -fx-font-size: 17px;-fx-effect: dropshadow(gaussian, #aa78f5, 6, 0.8, 0, 2);-fx-cursor: hand;" text="Start game" textAlignment="JUSTIFY" />
+                  <Button mnemonicParsing="false" onAction="#CreateTeam" style="-fx-background-radius: 12; -fx-background-color: linear-gradient(#662d91, #a066d1); -fx-text-fill: #ffffff; -fx-font-weight: bold;  -fx-font-style: italic; -fx-font-size: 17px;-fx-effect: dropshadow(gaussian, #aa78f5, 6, 0.8, 0, 2);-fx-cursor: hand;" text="Create a Team" textAlignment="JUSTIFY" />
 
                   <Button mnemonicParsing="false" onAction="#JoinTeam" prefHeight="38.0" prefWidth="137.0" style="-fx-background-radius: 12;-fx-background-color: linear-gradient(#2e0059, #7a3adf); -fx-text-fill: #ffffff;-fx-font-size: 17px; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, #a48de3, 6, 0.8, 0, 2);-fx-cursor: hand;" text="Join a team" textAlignment="CENTER" />
 
