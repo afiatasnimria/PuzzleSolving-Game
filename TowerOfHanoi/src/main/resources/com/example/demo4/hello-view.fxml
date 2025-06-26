@@ -2,17 +2,72 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="400" prefWidth="800" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo4.HelloController">
+<BorderPane prefHeight="600" prefWidth="1000" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo4.HelloController">
 
-    <!-- LEFT: Puzzle Area -->
+    <!-- LEFT: Team Sidebar -->
+    <left>
+        <VBox prefWidth="260" spacing="12" style="-fx-background-color: #202040;">
+            <padding>
+                <Insets bottom="20" left="15" right="15" top="20" />
+            </padding>
+
+            <Label style="-fx-text-fill: #ffffff; -fx-font-size: 20px; -fx-font-weight: bold;                           -fx-effect: dropshadow(gaussian, #7cfcff, 8, 0.2, 0, 0);" text="🧑 Team Members" />
+
+            <!-- Player Status Cards -->
+            <VBox spacing="10">
+                <TitledPane expanded="true" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-background-color: #2a2a44;" text="Player 1">
+                    <VBox spacing="6" style="-fx-background-color: #2f2f4f;">
+                        <padding><Insets bottom="6" left="6" right="6" top="6" /></padding>
+                        <Label fx:id="player1Moves" style="-fx-text-fill: #ffffff;" text="Moves: 0" />
+                        <Label fx:id="player1Time" style="-fx-text-fill: #ffffff;" text="Time: 00:00" />
+                        <Label fx:id="player1Status" style="-fx-text-fill: #00ff88; -fx-font-weight: bold;" text="Status: Ready" />
+                    </VBox>
+                </TitledPane>
+
+                <TitledPane expanded="true" style="-fx-text-fill: white; -fx-background-color: #2a2a44;" text="Player 2">
+                    <VBox spacing="6" style="-fx-background-color: #2f2f4f;">
+                        <padding><Insets bottom="6" left="6" right="6" top="6" /></padding>
+                        <Label fx:id="player2Moves" style="-fx-text-fill: #ffffff;" text="Moves: 0" />
+                        <Label fx:id="player2Time" style="-fx-text-fill: #ffffff;" text="Time: 00:00" />
+                        <Label fx:id="player2Status" style="-fx-text-fill: #ffcc00; -fx-font-weight: bold;" text="Status: Waiting" />
+                    </VBox>
+                </TitledPane>
+
+                <TitledPane expanded="true" style="-fx-text-fill: white; -fx-background-color: #2a2a44;" text="Player 3">
+                    <VBox spacing="6" style="-fx-background-color: #2f2f4f;">
+                        <padding><Insets bottom="6" left="6" right="6" top="6" /></padding>
+                        <Label fx:id="player3Moves" style="-fx-text-fill: #ffffff;" text="Moves: 0" />
+                        <Label fx:id="player3Time" style="-fx-text-fill: #ffffff;" text="Time: 00:00" />
+                        <Label fx:id="player3Status" style="-fx-text-fill: #ff4444; -fx-font-weight: bold;" text="Status: Offline" />
+                    </VBox>
+                </TitledPane>
+            </VBox>
+
+            <!-- Chat Section -->
+            <Label style="-fx-text-fill: #ffffff; -fx-font-size: 18px; -fx-padding: 10 0 0 0;                           -fx-effect: dropshadow(gaussian, #00ffff, 6, 0.2, 0, 0);" text="💬 Team Chat" />
+
+            <ScrollPane fitToWidth="true" prefHeight="200" style="-fx-background: #1e1e2e;">
+                <VBox fx:id="chatBox" spacing="6" style="-fx-background-color: #333355;">
+                    <padding>
+                        <Insets bottom="10" left="10" right="10" top="10" />
+                    </padding>
+                    <Label style="-fx-text-fill: #ffffff;" text="Player1: Let's go!" wrapText="true" />
+                    <Label style="-fx-text-fill: #ffffff;" text="Player2: Ready!" wrapText="true" />
+                </VBox>
+            </ScrollPane>
+        </VBox>
+    </left>
+
+    <!-- CENTER: Game Area -->
     <center>
-        <AnchorPane fx:id="gamePane" prefHeight="400" prefWidth="600" style="-fx-background-color: lavender;">
-            <!-- Top Labels -->
+        <AnchorPane fx:id="gamePane" prefHeight="600" prefWidth="600" style="-fx-background-color: lavender;">
             <Label fx:id="moveLabel" layoutX="20" layoutY="10" style="-fx-font-size: 16;" text="Moves: 0" />
             <Label fx:id="timerLabel" layoutX="500" layoutY="10" style="-fx-font-size: 16;" text="Time: 0s" />
 
@@ -23,38 +78,24 @@
         </AnchorPane>
     </center>
 
-    <!-- RIGHT: Side Menu -->
+    <!-- RIGHT: Tower of Hanoi Rules -->
     <right>
-        <VBox prefWidth="200" spacing="10" style="-fx-background-color: #fff0f5; -fx-border-color: #ff69b4; -fx-border-width: 2;">
+        <VBox prefWidth="250" spacing="10" style="-fx-background-color: #fff0f5; -fx-border-color: #ff69b4; -fx-border-width: 2;">
             <padding>
-                <Insets bottom="10" left="10" right="10" top="10" />
+                <Insets bottom="15" left="10" right="10" top="15" />
             </padding>
 
-            <!-- Player Progress Section -->
-            <VBox prefHeight="211.0" prefWidth="176.0" spacing="5" style="-fx-background-color: #ffe6ff; -fx-border-color: #cc66cc; -fx-border-width: 1;">
-                <padding>
-                    <Insets bottom="10" left="10" right="10" top="10" />
-                </padding>
-                <Label style="-fx-font-weight: bold;" text="Player 1 Progress:" />
-                <Label text="• Best: 20 moves" />
-                <Label text="• Last: 24 moves" />
-                <Label text=" " />
-                <Label style="-fx-font-weight: bold;" text="Player 2 Progress:" />
-                <Label text="• Best: 22 moves" />
-                <Label text="• Last: 30 moves" />
-            </VBox>
+            <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #8b008b;" text="📜 Tower of Hanoi Rules" />
 
-            <!-- Puzzle Info Section -->
-            <VBox prefHeight="158.0" prefWidth="176.0" spacing="5" style="-fx-background-color: #ffe6ff; -fx-border-color: #cc66cc; -fx-border-width: 1;">
-                <padding>
-                    <Insets bottom="10" left="10" right="10" top="10" />
-                </padding>
-                <Label style="-fx-font-weight: bold;" text="Puzzle Info" />
-                <Label text="• Total Disks: 6" />
-                <Label text="• Best Solve: 63 moves" />
-                <Label text="• Average Time: 80s" />
-                <Label text="• Difficulty: Hard" />
-            </VBox>
+            <ScrollPane fitToWidth="true" prefHeight="500" style="-fx-background-color: transparent;">
+                <VBox prefHeight="314.0" prefWidth="223.0" spacing="8" style="-fx-background-color: #ffe6ff; -fx-padding: 10;">
+                    <Label text="1. Only one disk can be moved at a time." wrapText="true" />
+                    <Label text="2. Each move involves taking the top disk from one of the stacks and placing it on top of another stack." wrapText="true" />
+                    <Label text="3. No larger disk may be placed on top of a smaller disk." wrapText="true" />
+                    <Label text="4. Objective: Move the entire stack to another rod, obeying the rules." wrapText="true" />
+                    <Label text="5. Minimum moves required: (2ⁿ - 1), where n is the number of disks." wrapText="true" />
+                </VBox>
+            </ScrollPane>
         </VBox>
     </right>
 
