@@ -1,66 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:controller="com.example.mysticmaze.controllers.JoinDashboard"
-            xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx/17"
-            prefWidth="800" prefHeight="600">
+<BorderPane prefHeight="600" prefWidth="800" style="-fx-background-color: linear-gradient(to bottom, #0f0f1e, #1a1a2e);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysticmaze.controllers.JoinDashboard">
 
     <!-- Sidebar -->
     <left>
-        <VBox spacing="10" prefWidth="250" style="-fx-background-color: #2c2c2c;">
+        <VBox prefWidth="260" spacing="12" style="-fx-background-color: #202040;">
             <padding>
-                <Insets top="15" right="15" bottom="15" left="15"/>
+                <Insets bottom="20" left="15" right="15" top="20" />
             </padding>
 
-            <Label text="Team Members" style="-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold;" />
+            <Label style="-fx-text-fill: #ffffff; -fx-font-size: 20px; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, #7cfcff, 8, 0.2, 0, 0);" text="🧑 Team Members" />
 
             <!-- Player Status Cards -->
             <VBox spacing="10">
-                <TitledPane text="Player 1" expanded="true">
-                    <VBox spacing="5">
-                        <padding>
-                            <Insets top="5" right="5" bottom="5" left="5"/>
-                        </padding>
-                        <Label fx:id="player1Moves" text="Moves: 0" style="-fx-text-fill: white;" />
-                        <Label fx:id="player1Time" text="Time: 00:00" style="-fx-text-fill: white;" />
-                        <Label fx:id="player1Status" text="Status: Ready" style="-fx-text-fill: #00ff00;" />
+                <TitledPane expanded="true" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-background-color: #2a2a44;" text="Player 1">
+                    <VBox spacing="6" style="-fx-background-color: #2f2f4f;">
+                        <padding><Insets bottom="6" left="6" right="6" top="6" /></padding>
+                        <Label fx:id="player1Moves" style="-fx-text-fill: #ffffff;" text="Moves: 0" />
+                        <Label fx:id="player1Time" style="-fx-text-fill: #ffffff;" text="Time: 00:00" />
+                        <Label fx:id="player1Status" style="-fx-text-fill: #00ff88; -fx-font-weight: bold;" text="Status: Ready" />
                     </VBox>
                 </TitledPane>
-                <TitledPane text="Player 2" expanded="true">
-                    <VBox spacing="5">
-                        <padding>
-                            <Insets top="5" right="5" bottom="5" left="5"/>
-                        </padding>
-                        <Label fx:id="player2Moves" text="Moves: 0" style="-fx-text-fill: white;" />
-                        <Label fx:id="player2Time" text="Time: 00:00" style="-fx-text-fill: white;" />
-                        <Label fx:id="player2Status" text="Status: Waiting" style="-fx-text-fill: #ffff00;" />
+
+                <TitledPane expanded="true" style="-fx-text-fill: white; -fx-background-color: #2a2a44;" text="Player 2">
+                    <VBox spacing="6" style="-fx-background-color: #2f2f4f;">
+                        <padding><Insets bottom="6" left="6" right="6" top="6" /></padding>
+                        <Label fx:id="player2Moves" style="-fx-text-fill: #ffffff;" text="Moves: 0" />
+                        <Label fx:id="player2Time" style="-fx-text-fill: #ffffff;" text="Time: 00:00" />
+                        <Label fx:id="player2Status" style="-fx-text-fill: #ffcc00; -fx-font-weight: bold;" text="Status: Waiting" />
                     </VBox>
                 </TitledPane>
-                <TitledPane text="Player 3" expanded="true">
-                    <VBox spacing="5">
-                        <padding>
-                            <Insets top="5" right="5" bottom="5" left="5"/>
-                        </padding>
-                        <Label fx:id="player3Moves" text="Moves: 0" style="-fx-text-fill: white;" />
-                        <Label fx:id="player3Time" text="Time: 00:00" style="-fx-text-fill: white;" />
-                        <Label fx:id="player3Status" text="Status: Offline" style="-fx-text-fill: #ff0000;" />
+
+                <TitledPane expanded="true" style="-fx-text-fill: white; -fx-background-color: #2a2a44;" text="Player 3">
+                    <VBox spacing="6" style="-fx-background-color: #2f2f4f;">
+                        <padding><Insets bottom="6" left="6" right="6" top="6" /></padding>
+                        <Label fx:id="player3Moves" style="-fx-text-fill: #ffffff;" text="Moves: 0" />
+                        <Label fx:id="player3Time" style="-fx-text-fill: #ffffff;" text="Time: 00:00" />
+                        <Label fx:id="player3Status" style="-fx-text-fill: #ff4444; -fx-font-weight: bold;" text="Status: Offline" />
                     </VBox>
                 </TitledPane>
             </VBox>
 
             <!-- Message Area -->
-            <Label text="Team Chat" style="-fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 10 0 0 0;" />
-            <ScrollPane fitToWidth="true" prefHeight="200">
-                <VBox fx:id="chatBox" spacing="5" style="-fx-background-color: #444;">
+            <Label style="-fx-text-fill: #ffffff; -fx-font-size: 18px; -fx-padding: 10 0 0 0;                           -fx-effect: dropshadow(gaussian, #00ffff, 6, 0.2, 0, 0);" text="💬 Team Chat" />
+            <ScrollPane fitToWidth="true" prefHeight="200" style="-fx-background: #1e1e2e;">
+                <VBox fx:id="chatBox" spacing="6" style="-fx-background-color: #333355;">
                     <padding>
-                        <Insets top="10" right="10" bottom="10" left="10"/>
+                        <Insets bottom="10" left="10" right="10" top="10" />
                     </padding>
-                    <Label text="Player1: Let's go!" wrapText="true" style="-fx-text-fill: white;" />
-                    <Label text="Player2: Ready!" wrapText="true" style="-fx-text-fill: white;" />
+                    <Label style="-fx-text-fill: #ffffff;" text="Player1: Let's go!" wrapText="true" />
+                    <Label style="-fx-text-fill: #ffffff;" text="Player2: Ready!" wrapText="true" />
                 </VBox>
             </ScrollPane>
         </VBox>
@@ -68,11 +69,73 @@
 
     <!-- Main Area -->
     <center>
-        <StackPane alignment="CENTER">
-            <Button fx:id="startGameButton" text="Start Game"
-                    style="-fx-font-size: 18px; -fx-background-color: #7a3adf; -fx-text-fill: white; -fx-background-radius: 10;"
-                    prefWidth="180" prefHeight="50" />
-        </StackPane>
+        <!-- Glowing Level Buttons Integrated -->
+        <AnchorPane prefHeight="600" prefWidth="550">
+
+            <!-- Background (optional, can match theme) -->
+            <ImageView fitHeight="618.0" fitWidth="754.0" layoutX="-4.0" preserveRatio="false">
+                <image>
+                    <Image url="@../images/log.png" />
+                </image>
+            </ImageView>
+
+            <!-- StackPanes for Glowing Buttons with Locks -->
+            <StackPane layoutX="80" layoutY="480">
+                <Button fx:id="level1" prefHeight="60" prefWidth="60" style="-fx-background-radius: 50em; -fx-border-radius: 50em;                            -fx-background-color: radial-gradient(center 50% 50%, radius 60%, #00ffff, #003344),                                                  linear-gradient(from 0% 0% to 100% 100%, #00ffff88, #001111cc),                                                  linear-gradient(from 0% 0% to 0% 100%, #00ffffcc 0%, #003344 100%);                            -fx-border-color: #66ffff; -fx-border-width: 2px;                            -fx-effect: dropshadow(gaussian, #00ffff, 30, 0.8, 0, 0);                            -fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;" text="1" />
+                <Label fx:id="lock1" style="-fx-font-size: 22px; -fx-text-fill: white;" text="🔒" visible="false" />
+            </StackPane>
+
+            <!-- REPEAT for level 2 to level 10 -->
+
+            <StackPane layoutX="150" layoutY="460">
+                <Button fx:id="level2" prefHeight="60" prefWidth="60" style="-fx-background-radius: 50em; -fx-border-radius: 50em;                            -fx-background-color: radial-gradient(center 50% 50%, radius 60%, #00ffff, #003344),                                                  linear-gradient(from 0% 0% to 100% 100%, #00ffff88, #001111cc),                                                  linear-gradient(from 0% 0% to 0% 100%, #00ffffcc 0%, #003344 100%);                            -fx-border-color: #66ffff; -fx-border-width: 2px;                            -fx-effect: dropshadow(gaussian, #00ffff, 30, 0.8, 0, 0);                            -fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;" text="2" />
+                <Label fx:id="lock2" style="-fx-font-size: 22px; -fx-text-fill: white;" text="🔒" visible="false" />
+            </StackPane>
+
+            <StackPane layoutX="230" layoutY="435">
+                <Button fx:id="level3" prefHeight="60" prefWidth="60" style="-fx-background-radius: 50em; -fx-border-radius: 50em;                            -fx-background-color: radial-gradient(center 50% 50%, radius 60%, #00ffff, #003344),                                                  linear-gradient(from 0% 0% to 100% 100%, #00ffff88, #001111cc),                                                  linear-gradient(from 0% 0% to 0% 100%, #00ffffcc 0%, #003344 100%);                            -fx-border-color: #66ffff; -fx-border-width: 2px;                            -fx-effect: dropshadow(gaussian, #00ffff, 30, 0.8, 0, 0);                            -fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;" text="3" />
+                <Label fx:id="lock3" style="-fx-font-size: 22px; -fx-text-fill: white;" text="🔒" visible="false" />
+            </StackPane>
+
+            <StackPane layoutX="100" layoutY="400">
+                <Button fx:id="level4" prefHeight="60" prefWidth="60" style="-fx-background-radius: 50em; -fx-border-radius: 50em;                            -fx-background-color: radial-gradient(center 50% 50%, radius 60%, #00ffff, #003344),                                                  linear-gradient(from 0% 0% to 100% 100%, #00ffff88, #001111cc),                                                  linear-gradient(from 0% 0% to 0% 100%, #00ffffcc 0%, #003344 100%);                            -fx-border-color: #66ffff; -fx-border-width: 2px;                            -fx-effect: dropshadow(gaussian, #00ffff, 30, 0.8, 0, 0);                            -fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;" text="4" />
+                <Label fx:id="lock4" style="-fx-font-size: 22px; -fx-text-fill: white;" text="🔒" visible="false" />
+            </StackPane>
+
+            <StackPane layoutX="280" layoutY="390">
+                <Button fx:id="level5" prefHeight="60" prefWidth="60" style="-fx-background-radius: 50em; -fx-border-radius: 50em;                            -fx-background-color: radial-gradient(center 50% 50%, radius 60%, #00ffff, #003344),                                                  linear-gradient(from 0% 0% to 100% 100%, #00ffff88, #001111cc),                                                  linear-gradient(from 0% 0% to 0% 100%, #00ffffcc 0%, #003344 100%);                            -fx-border-color: #66ffff; -fx-border-width: 2px;                            -fx-effect: dropshadow(gaussian, #00ffff, 30, 0.8, 0, 0);                            -fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;" text="5" />
+                <Label fx:id="lock5" style="-fx-font-size: 22px; -fx-text-fill: white;" text="🔒" visible="false" />
+            </StackPane>
+
+            <StackPane layoutX="200" layoutY="350">
+                <Button fx:id="level6" prefHeight="60" prefWidth="60" style="-fx-background-radius: 50em; -fx-border-radius: 50em;                            -fx-background-color: radial-gradient(center 50% 50%, radius 60%, #00ffff, #003344),                                                  linear-gradient(from 0% 0% to 100% 100%, #00ffff88, #001111cc),                                                  linear-gradient(from 0% 0% to 0% 100%, #00ffffcc 0%, #003344 100%);                            -fx-border-color: #66ffff; -fx-border-width: 2px;                            -fx-effect: dropshadow(gaussian, #00ffff, 30, 0.8, 0, 0);                            -fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;" text="6" />
+                <Label fx:id="lock6" style="-fx-font-size: 22px; -fx-text-fill: white;" text="🔒" visible="false" />
+            </StackPane>
+
+            <StackPane layoutX="140" layoutY="310">
+                <Button fx:id="level7" prefHeight="60" prefWidth="60" style="-fx-background-radius: 50em; -fx-border-radius: 50em;                            -fx-background-color: radial-gradient(center 50% 50%, radius 60%, #00ffff, #003344),                                                  linear-gradient(from 0% 0% to 100% 100%, #00ffff88, #001111cc),                                                  linear-gradient(from 0% 0% to 0% 100%, #00ffffcc 0%, #003344 100%);                            -fx-border-color: #66ffff; -fx-border-width: 2px;                            -fx-effect: dropshadow(gaussian, #00ffff, 30, 0.8, 0, 0);                            -fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;" text="7" />
+                <Label fx:id="lock7" style="-fx-font-size: 22px; -fx-text-fill: white;" text="🔒" visible="false" />
+            </StackPane>
+
+            <StackPane layoutX="200" layoutY="270">
+                <Button fx:id="level8" prefHeight="60" prefWidth="60" style="-fx-background-radius: 50em; -fx-border-radius: 50em;                            -fx-background-color: radial-gradient(center 50% 50%, radius 60%, #00ffff, #003344),                                                  linear-gradient(from 0% 0% to 100% 100%, #00ffff88, #001111cc),                                                  linear-gradient(from 0% 0% to 0% 100%, #00ffffcc 0%, #003344 100%);                            -fx-border-color: #66ffff; -fx-border-width: 2px;                            -fx-effect: dropshadow(gaussian, #00ffff, 30, 0.8, 0, 0);                            -fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;" text="8" />
+                <Label fx:id="lock8" style="-fx-font-size: 22px; -fx-text-fill: white;" text="🔒" visible="false" />
+            </StackPane>
+
+            <StackPane layoutX="250" layoutY="220">
+                <Button fx:id="level9" prefHeight="60" prefWidth="60" style="-fx-background-radius: 50em; -fx-border-radius: 50em;                            -fx-background-color: radial-gradient(center 50% 50%, radius 60%, #00ffff, #003344),                                                  linear-gradient(from 0% 0% to 100% 100%, #00ffff88, #001111cc),                                                  linear-gradient(from 0% 0% to 0% 100%, #00ffffcc 0%, #003344 100%);                            -fx-border-color: #66ffff; -fx-border-width: 2px;                            -fx-effect: dropshadow(gaussian, #00ffff, 30, 0.8, 0, 0);                            -fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;" text="9" />
+                <Label fx:id="lock9" style="-fx-font-size: 22px; -fx-text-fill: white;" text="🔒" visible="false" />
+            </StackPane>
+
+            <StackPane layoutX="330" layoutY="190">
+                <Button fx:id="level10" prefHeight="60" prefWidth="60" style="-fx-background-radius: 50em; -fx-border-radius: 50em;                            -fx-background-color: radial-gradient(center 50% 50%, radius 60%, #00ffff, #003344),                                                  linear-gradient(from 0% 0% to 100% 100%, #00ffff88, #001111cc),                                                  linear-gradient(from 0% 0% to 0% 100%, #00ffffcc 0%, #003344 100%);                            -fx-border-color: #66ffff; -fx-border-width: 2px;                            -fx-effect: dropshadow(gaussian, #00ffff, 30, 0.8, 0, 0);                            -fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;" text="10" />
+                <Label fx:id="lock10" style="-fx-font-size: 22px; -fx-text-fill: white;" text="🔒" visible="false" />
+            </StackPane>
+
+             <Button fx:id="startGameButton" layoutX="271.0" layoutY="534.0" prefHeight="43.0" prefWidth="159.0" style="-fx-font-size: 20px;                            -fx-background-color: linear-gradient(to bottom, #8f00ff, #5b00b3);                            -fx-text-fill: white;                            -fx-background-radius: 15;                            -fx-font-weight: bold;                            -fx-effect: dropshadow(gaussian, #c586ff, 12, 0.5, 0, 0);                            -fx-cursor: hand;" text="🚀 Start Game" />
+
+        </AnchorPane>
     </center>
+
 
 </BorderPane>

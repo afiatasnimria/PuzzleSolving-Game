@@ -34,7 +34,7 @@ public class CreateRoomController {
             System.out.println("Room created: " + roomName);
 
             // Load RoomDashboard.fxml
-            Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/JoinDashboard.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/joinDashboard.fxml"));
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.setResizable(false);
             stage.setTitle("Room Dashboard");

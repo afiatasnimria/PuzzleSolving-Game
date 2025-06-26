@@ -15,6 +15,7 @@ import java.io.IOException;
 
 public class JoinDashboard {
 
+    // JoinDashboard Section
     @FXML private Label player1Moves;
     @FXML private Label player1Time;
     @FXML private Label player1Status;
@@ -28,24 +29,48 @@ public class JoinDashboard {
     @FXML private Label player3Status;
 
     @FXML private VBox chatBox;
-
     @FXML private Button startGameButton;
+
+    // Level Buttons and Locks Section
+    @FXML private Button level1, level2, level3, level4, level5,
+            level6, level7, level8, level9, level10;
+
+    @FXML private Label lock1, lock2, lock3, lock4, lock5,
+            lock6, lock7, lock8, lock9, lock10;
+
+    private int currentUnlockedLevel = 1;
 
     @FXML
     public void initialize() {
-        // Sample initial player statuses
+        // Init player statuses
         updatePlayerStatus(1, 12, "00:45", "Ready");
         updatePlayerStatus(2, 8, "00:38", "Waiting");
         updatePlayerStatus(3, 15, "01:02", "Offline");
 
-        startGameButton.setOnAction(e -> {
-            try {
-                handleStartGame(e);
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        });
+        // Set up Start Game Button
+        if (startGameButton != null) {
+            startGameButton.setOnAction(e -> {
+                try {
+                    handleStartGame(e);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            });
+        }
 
+        // Setup Level Buttons if present
+        if (level1 != null) {
+            setupLevels();
+            Button[] levels = {
+                    level1, level2, level3, level4, level5,
+                    level6, level7, level8, level9, level10
+            };
+
+            for (int i = 0; i < levels.length; i++) {
+                final int levelNum = i + 1;
+                levels[i].setOnAction(e -> unlockNextLevel(levelNum));
+            }
+        }
     }
 
     private void updatePlayerStatus(int playerNum, int moves, String time, String status) {
@@ -91,5 +116,31 @@ public class JoinDashboard {
         stage.setTitle("Create a Team");
         stage.setScene(new Scene(root));
         stage.show();
+    }
+
+    private void setupLevels() {
+        Button[] levels = {
+                level1, level2, level3, level4, level5,
+                level6, level7, level8, level9, level10
+        };
+
+        Label[] locks = {
+                lock1, lock2, lock3, lock4, lock5,
+                lock6, lock7, lock8, lock9, lock10
+        };
+
+        for (int i = 0; i < levels.length; i++) {
+            boolean unlocked = (i < currentUnlockedLevel);
+            levels[i].setDisable(!unlocked);
+            locks[i].setVisible(!unlocked);
+        }
+    }
+
+    private void unlockNextLevel(int levelCompleted) {
+        if (levelCompleted == currentUnlockedLevel && currentUnlockedLevel < 10) {
+            currentUnlockedLevel++;
+            setupLevels();
+            System.out.println("✅ Unlocked level " + currentUnlockedLevel);
+        }
     }
 }
