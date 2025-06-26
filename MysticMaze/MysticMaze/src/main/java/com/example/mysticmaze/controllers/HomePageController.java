@@ -21,23 +21,46 @@ public class HomePageController {
         welcomeText.setText("Welcome to JavaFX Application!");
     }
 
-    public void CreateTeam(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/loginPage.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setResizable(false);
-        stage.setTitle("Create a Team");
-        stage.setScene(new Scene(root));
-        stage.show();
+    @FXML
+    private void CreateTeam(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/mysticmaze/fxmls/LoginPage.fxml"));
+            Parent loginRoot = loader.load();
+
+            // Pass navigation info
+            LoginPageController controller = loader.getController();
+            controller.setNavigationContext(
+                    "/com/example/mysticmaze/fxmls/HomePage.fxml",              // previous page
+                    "/com/example/mysticmaze/fxmls/CreateRoom.fxml"             // target after login
+            );
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(loginRoot));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void JoinTeam(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/loginPage.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setResizable(false);
-        stage.setTitle("Join A Team");
-        stage.setScene(new Scene(root));
-        stage.show();
+
+    @FXML
+    private void JoinTeam(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/mysticmaze/fxmls/LoginPage.fxml"));
+            Parent loginRoot = loader.load();
+
+            LoginPageController controller = loader.getController();
+            controller.setNavigationContext(
+                    "/com/example/mysticmaze/fxmls/DashboardPage.fxml",
+                    "/com/example/mysticmaze/fxmls/JoinTeam.fxml"
+            );
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(loginRoot));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
     public void LoginPage(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/mysticmaze/fxmls/loginPage.fxml"));
 

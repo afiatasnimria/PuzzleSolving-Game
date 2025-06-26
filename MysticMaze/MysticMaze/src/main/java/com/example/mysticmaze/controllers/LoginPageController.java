@@ -3,11 +3,11 @@ package com.example.mysticmaze.controllers;
 import com.example.mysticmaze.utils.DBUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 
 import java.io.IOException;
@@ -16,6 +16,16 @@ public class LoginPageController {
 
     @FXML public TextField usernameField;
     @FXML public PasswordField passwordField;
+
+    // Custom navigation variables
+    private String previousPageFXML;
+    private String targetPageFXML;
+
+    // Called from other controllers before loading LoginPage
+    public void setNavigationContext(String previousPageFXML, String targetPageFXML) {
+        this.previousPageFXML = previousPageFXML;
+        this.targetPageFXML = targetPageFXML;
+    }
 
     @FXML
     private void handleLogin(ActionEvent event) {
@@ -29,16 +39,18 @@ public class LoginPageController {
 
         if (DBUtil.validateUser(username, password)) {
             try {
-                //System.out.println(getClass().getResource("/com/example/mysticmaze/fxmls/DashboardPage.fxml"));
+                // Determine next page
+                String nextPage = (targetPageFXML != null) ? targetPageFXML : "/com/example/mysticmaze/fxmls/DashboardPage.fxml";
 
-                Parent dashboard = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/DashboardPage.fxml"));
-                Scene dashboardScene = new Scene(dashboard);
-                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                window.setTitle("Dashboard");
-                window.setScene(dashboardScene);
+                FXMLLoader loader = new FXMLLoader(getClass().getResource(nextPage));
+                Parent nextRoot = loader.load();
+
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(nextRoot));
+                stage.setTitle("Mystic Maze");
             } catch (IOException e) {
                 e.printStackTrace();
-                showAlert(Alert.AlertType.ERROR, "Navigation Error", "Could not load dashboard.");
+                showAlert(Alert.AlertType.ERROR, "Navigation Error", "Could not load next page.");
             }
         } else {
             showAlert(Alert.AlertType.ERROR, "Login Failed", "Invalid username or password.");
@@ -48,22 +60,12 @@ public class LoginPageController {
     @FXML
     private void handleBack(ActionEvent event) {
         try {
-            Parent loginRoot = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/HomePage.fxml"));
-            Scene loginScene = new Scene(loginRoot);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(loginScene);
-        } catch (IOException e) {
-            e.printStackTrace();
-            showAlert(Alert.AlertType.ERROR, "Navigation Error", "Could not go back.");
-        }
-    }
+            String backPage = (previousPageFXML != null) ? previousPageFXML : "/com/example/mysticmaze/fxmls/HomePage.fxml";
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(backPage));
+            Parent root = loader.load();
 
-    private void RegisterPage(ActionEvent event) {
-        try {
-            Parent loginRoot = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/registerPage.fxml"));
-            Scene loginScene = new Scene(loginRoot);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(loginScene);
+            stage.setScene(new Scene(root));
         } catch (IOException e) {
             e.printStackTrace();
             showAlert(Alert.AlertType.ERROR, "Navigation Error", "Could not go back.");
