@@ -44,7 +44,7 @@ public class JoinTeamController {
         int user_id = Session.getUserId();
         // check the user already have a room
         if(DBUtil.isUserInActiveRoom(user_id)){
-            statusLabel.setText("You are in active room, Please leave the room first");
+            statusLabel.setText("You already have a room, Please leave the room first");
             return;
         }
 

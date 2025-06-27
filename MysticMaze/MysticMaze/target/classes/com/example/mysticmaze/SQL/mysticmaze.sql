@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 27, 2025 at 03:46 AM
+-- Generation Time: Jun 27, 2025 at 08:41 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -48,6 +48,20 @@ CREATE TABLE `leaderboard` (
   `total_hints_used` int(11) DEFAULT NULL,
   `accuracy_score` decimal(5,2) DEFAULT NULL,
   `rank` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `messages`
+--
+
+CREATE TABLE `messages` (
+  `id` int(11) NOT NULL,
+  `room_id` int(11) NOT NULL,
+  `sender_id` int(11) NOT NULL,
+  `message` text NOT NULL,
+  `sent_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -140,7 +154,10 @@ CREATE TABLE `rooms` (
 
 INSERT INTO `rooms` (`room_id`, `room_code`, `host_user_id`, `created_at`, `room_name`) VALUES
 (10, '18433', 4, '2025-06-27 01:18:59', 'monser vai er team'),
-(11, '36314', 5, '2025-06-27 01:19:32', 'afia apur team');
+(11, '36314', 5, '2025-06-27 01:19:32', 'afia apur team'),
+(12, '42165', 9, '2025-06-27 15:12:15', 'Buddi Ase'),
+(13, '9966', 4, '2025-06-27 18:11:58', 'skdfj'),
+(14, '44158', 11, '2025-06-27 18:17:24', 'selim gang');
 
 -- --------------------------------------------------------
 
@@ -162,7 +179,14 @@ CREATE TABLE `room_members` (
 
 INSERT INTO `room_members` (`id`, `room_id`, `user_id`, `status`, `joined_at`) VALUES
 (8, 10, 4, 'active', '2025-06-27 01:18:59'),
-(9, 11, 5, 'active', '2025-06-27 01:19:33');
+(9, 11, 5, 'active', '2025-06-27 01:19:33'),
+(10, 11, 6, 'active', '2025-06-27 14:46:12'),
+(11, 10, 7, 'active', '2025-06-27 15:05:10'),
+(12, 12, 9, 'active', '2025-06-27 15:12:15'),
+(13, 14, 11, 'active', '2025-06-27 18:17:24'),
+(14, 14, 10, 'active', '2025-06-27 18:28:39'),
+(15, 14, 12, 'active', '2025-06-27 18:30:00'),
+(16, 12, 14, 'active', '2025-06-27 18:32:50');
 
 -- --------------------------------------------------------
 
@@ -188,7 +212,12 @@ INSERT INTO `users` (`user_id`, `username`, `email`, `password_hash`, `created_a
 (5, 'afia', 'afia@gmail.com', '8828095a933c30f9fabf6d60b2b548faa1b490f153e94a1b9a5f05535eef2534', '2025-05-08 20:37:27', NULL),
 (6, 'dip', 'dip', 'b6813f3af2d45fbfc768b3966d5de7f665d648958610362bebb63372052d0f0d', '2025-05-10 18:10:00', NULL),
 (7, 'mim', 'mim@gmail.com', '6af3c53bbe0d99a60ea0021b62caddd7e97cf88616353774f22aefbf24539147', '2025-05-14 22:08:43', NULL),
-(9, 'sunny', 'sunny@gmail.com', 'c2333a7e3a607935c67c1e6f6810395decc9f66f592b812aaada7db94ba215d6', '2025-05-25 11:28:34', NULL);
+(9, 'sunny', 'sunny@gmail.com', 'c2333a7e3a607935c67c1e6f6810395decc9f66f592b812aaada7db94ba215d6', '2025-05-25 11:28:34', NULL),
+(10, 'tanvir', 'tanvvir@gmail.com', '89d125fcc1cd5fffc872a91ebc1ba627c5881714f725409c78921f10bc463f58', '2025-06-27 18:14:59', NULL),
+(11, 'selim', 'selim@gmail.com', '2341c3e81a4343fb668c2183cca7dc352549a87c39497fea201fcc823af73b6a', '2025-06-27 18:15:54', NULL),
+(12, 'kamal', 'kamal@gmail.com', 'fa835fb5da1fbbc3988516b4059e18b4adeb0e2facdbc3457ac2cfa5efefdd06', '2025-06-27 18:29:42', NULL),
+(13, 'jamal', 'jamal@gmail.com', '57b472bdf2cf967a8a9b862717be0cfccd5260121823076c9bcd3762bf1a0096', '2025-06-27 18:30:38', NULL),
+(14, 'jodu', 'jodu@gmail.com', '062bddf3fefe878eba623db1ec118af4bd2732f385e45c90382101e27fce2a13', '2025-06-27 18:32:09', NULL);
 
 --
 -- Indexes for dumped tables
@@ -207,6 +236,14 @@ ALTER TABLE `game_sessions`
 ALTER TABLE `leaderboard`
   ADD PRIMARY KEY (`session_id`),
   ADD KEY `room_id` (`room_id`);
+
+--
+-- Indexes for table `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `room_id` (`room_id`),
+  ADD KEY `sender_id` (`sender_id`);
 
 --
 -- Indexes for table `player_progress`
@@ -270,6 +307,12 @@ ALTER TABLE `game_sessions`
   MODIFY `session_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `puzzles`
 --
 ALTER TABLE `puzzles`
@@ -285,19 +328,19 @@ ALTER TABLE `puzzle_hints`
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `room_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `room_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `room_members`
 --
 ALTER TABLE `room_members`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables
@@ -315,6 +358,13 @@ ALTER TABLE `game_sessions`
 ALTER TABLE `leaderboard`
   ADD CONSTRAINT `leaderboard_ibfk_1` FOREIGN KEY (`session_id`) REFERENCES `game_sessions` (`session_id`),
   ADD CONSTRAINT `leaderboard_ibfk_2` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`room_id`);
+
+--
+-- Constraints for table `messages`
+--
+ALTER TABLE `messages`
+  ADD CONSTRAINT `messages_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`room_id`),
+  ADD CONSTRAINT `messages_ibfk_2` FOREIGN KEY (`sender_id`) REFERENCES `users` (`user_id`);
 
 --
 -- Constraints for table `player_progress`

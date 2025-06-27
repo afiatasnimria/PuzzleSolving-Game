@@ -50,6 +50,8 @@ public class TohController implements Initializable {
     private final Stack<Rectangle> stack2 = new Stack<>();
     private final Stack<Rectangle> stack3 = new Stack<>();
 
+
+
     private int moveCount = 0;
     private long startTime;
     private Timeline timeline;

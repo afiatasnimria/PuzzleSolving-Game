@@ -44,7 +44,7 @@ public class JoinDashboard {
     public void initialize() {
         // Init player statuses
         updatePlayerStatus(1, 12, "00:45", "Ready");
-        updatePlayerStatus(2, 8, "00:38", "Waiting");
+        updatePlayerStatus(2, 8, "00:38", "Offline");
         updatePlayerStatus(3, 15, "01:02", "Offline");
 
         // Set up Start Game Button
@@ -57,6 +57,8 @@ public class JoinDashboard {
                 }
             });
         }
+
+
 
         // Setup Level Buttons if present
         if (level1 != null) {
@@ -110,7 +112,7 @@ public class JoinDashboard {
 
     private void handleStartGame(ActionEvent e) throws IOException {
         System.out.println("🟢 Start Game button clicked!");
-        Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/startGame.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/TohPage.fxml"));
         Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         stage.setResizable(false);
         stage.setTitle("Create a Team");
@@ -142,5 +144,27 @@ public class JoinDashboard {
             setupLevels();
             System.out.println("✅ Unlocked level " + currentUnlockedLevel);
         }
+
     }
+    @FXML
+    private void startLevel3(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/mysticmaze/fxmls/TohPage.fxml"));
+            Parent root = loader.load();
+
+            // Pass data to the game controller if needed
+            //TohController tohController = loader.getController();
+            //tohController.initData(currentUser, currentRoomId);  // optional
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setTitle("Level 1 - Tower of Hanoi");
+            stage.setScene(new Scene(root));
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }
