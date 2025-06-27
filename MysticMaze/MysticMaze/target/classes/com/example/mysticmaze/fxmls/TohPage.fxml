@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="400" prefWidth="800" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysticmaze.controllers.TohController">
+
+    <!-- LEFT: Puzzle Area -->
+    <center>
+        <AnchorPane fx:id="gamePane" prefHeight="400" prefWidth="600" style="-fx-background-color: lavender;">
+            <!-- Top Labels -->
+            <Label fx:id="moveLabel" layoutX="497.0" layoutY="26.0" style="-fx-font-size: 16;" text="Moves: 0" />
+            <Label fx:id="timerLabel" layoutX="497.0" layoutY="7.0" style="-fx-font-size: 16;" text="Time: 0s" />
+
+            <!-- Rods -->
+            <Pane fx:id="rod1" layoutX="50" layoutY="50" onMouseClicked="#onRodClicked" prefHeight="350" prefWidth="150">
+            <children>
+               <Label layoutX="61.0" layoutY="314.0" text="A" textFill="#4fdd42">
+                  <font>
+                     <Font name="System Bold" size="24.0" />
+                  </font>
+               </Label>
+            </children></Pane>
+            <Pane fx:id="rod2" layoutX="225" layoutY="50" onMouseClicked="#onRodClicked" prefHeight="350" prefWidth="150">
+            <children>
+               <Label layoutX="67.0" layoutY="315.0" text="B" textFill="#4fdd42">
+                  <font>
+                     <Font name="System Bold" size="24.0" />
+                  </font>
+               </Label>
+            </children></Pane>
+            <Pane fx:id="rod3" layoutX="400" layoutY="50" onMouseClicked="#onRodClicked" prefHeight="350" prefWidth="150">
+            <children>
+               <Label layoutX="65.0" layoutY="315.0" text="C" textFill="#4fdd42">
+                  <font>
+                     <Font name="System Bold" size="24.0" />
+                  </font>
+               </Label>
+            </children></Pane>
+         <Label layoutX="47.0" layoutY="10.0" prefHeight="34.0" prefWidth="357.0" text="Transfer all the disk from A to C " textFill="#2b6146">
+            <font>
+               <Font name="System Bold" size="22.0" />
+            </font>
+         </Label>
+        </AnchorPane>
+    </center>
+
+    <!-- RIGHT: Side Menu -->
+    <right>
+        <VBox prefWidth="200" spacing="10" style="-fx-background-color: #fff0f5; -fx-border-color: #ff69b4; -fx-border-width: 2;">
+            <padding>
+                <Insets bottom="10" left="10" right="10" top="10" />
+            </padding>
+
+            <!-- Player Progress Section -->
+            <VBox prefHeight="211.0" prefWidth="176.0" spacing="5" style="-fx-background-color: #ffe6ff; -fx-border-color: #cc66cc; -fx-border-width: 1;">
+                <padding>
+                    <Insets bottom="10" left="10" right="10" top="10" />
+                </padding>
+                <Label style="-fx-font-weight: bold;" text="Player 1 Progress:" />
+                <Label text="• Best: 20 moves" />
+                <Label text="• Last: 24 moves" />
+                <Label text=" " />
+                <Label style="-fx-font-weight: bold;" text="Player 2 Progress:" />
+                <Label text="• Best: 22 moves" />
+                <Label text="• Last: 30 moves" />
+            </VBox>
+
+            <!-- Puzzle Info Section -->
+            <VBox prefHeight="158.0" prefWidth="176.0" spacing="5" style="-fx-background-color: #ffe6ff; -fx-border-color: #cc66cc; -fx-border-width: 1;">
+                <padding>
+                    <Insets bottom="10" left="10" right="10" top="10" />
+                </padding>
+                <Label style="-fx-font-weight: bold;" text="Puzzle Info" />
+                <Label fx:id="disksLabel" text="• Total Disks: 6" />
+                <Label fx:id="bestMovesLabel" text="• Best Solve: 63 moves" />
+                <Label fx:id="bestTimeLabel" text="•Best Time: 80s" />
+                <Label fx:id="difficultyLabel" text="• Difficulty: Hard" />
+            </VBox>
+        </VBox>
+    </right>
+
+</BorderPane>
