@@ -34,7 +34,7 @@
       </Button>
 
       <!-- Back Button -->
-      <Button layoutX="55.0" layoutY="53.0" onAction="#handleBack" style="-fx-background-color: transparent; -fx-text-fill: #ffffff; -fx-font-size: 14; -fx-cursor: hand;" text="← Back">
+      <Button layoutX="51.0" layoutY="72.0" onAction="#handleBack" style="-fx-background-color: transparent; -fx-text-fill: #ffffff; -fx-font-size: 14; -fx-cursor: hand;" text="← Return">
          <effect>
             <Glow level="0.3" />
          </effect>

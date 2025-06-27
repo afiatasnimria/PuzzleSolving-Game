@@ -6,6 +6,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.control.Button?>
 <AnchorPane prefHeight="507.0" prefWidth="749.0" style="-fx-background-color: linear-gradient(to bottom, #1e0033, #3c0066);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysticmaze.controllers.HelpController">
 
    <children>
@@ -52,4 +54,10 @@
          </font>
       </Label>
    </children>
+   <!-- Back Button -->
+   <Button layoutX="51.0" layoutY="72.0" onAction="#handleBack" style="-fx-background-color: transparent; -fx-text-fill: #ffffff; -fx-font-size: 14; -fx-cursor: hand;" text="← Return">
+      <effect>
+         <Glow level="0.3" />
+      </effect>
+   </Button>
 </AnchorPane>

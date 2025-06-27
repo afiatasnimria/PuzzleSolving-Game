@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.effect.Glow?>
 <AnchorPane prefHeight="503.0" prefWidth="755.0" style="-fx-background-image: url('../images/background.png');" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysticmaze.controllers.DashboardController">
 
    <children>
@@ -70,4 +71,5 @@
 
       <Button alignment="BOTTOM_CENTER" layoutX="595.0" layoutY="419.0" mnemonicParsing="false" onAction="#Level" prefHeight="64.0" prefWidth="83.0" style="-fx-background-color: transparent; -fx-text-fill: #e7eb85;-fx-font-weight: bold; -fx-cursor: hand;" text="Level" />
    </children>
+
 </AnchorPane>

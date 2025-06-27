@@ -6,10 +6,18 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.effect.Glow?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.mysticmaze.controllers.ProfilePageController"
             prefHeight="400.0" prefWidth="600.0">
+
+    <!-- Back Button -->
+    <Button layoutX="51.0" layoutY="72.0" onAction="#handleBack" style="-fx-background-color: transparent; -fx-text-fill: #ffffff; -fx-font-size: 14; -fx-cursor: hand;" text="← Return">
+        <effect>
+            <Glow level="0.3" />
+        </effect>
+    </Button>
 
 
 </AnchorPane>
