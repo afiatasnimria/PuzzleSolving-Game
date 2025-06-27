@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 30, 2025 at 10:01 PM
+-- Generation Time: Jun 27, 2025 at 04:43 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -130,9 +130,17 @@ CREATE TABLE `rooms` (
   `room_id` int(11) NOT NULL,
   `room_code` varchar(10) NOT NULL,
   `host_user_id` int(11) DEFAULT NULL,
-  `status` enum('waiting','active','completed') DEFAULT 'waiting',
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `room_name` varchar(150) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `rooms`
+--
+
+INSERT INTO `rooms` (`room_id`, `room_code`, `host_user_id`, `created_at`, `room_name`) VALUES
+(10, '18433', 4, '2025-06-27 01:18:59', 'monser vai er team'),
+(11, '36314', 5, '2025-06-27 01:19:32', 'afia apur team');
 
 -- --------------------------------------------------------
 
@@ -141,10 +149,20 @@ CREATE TABLE `rooms` (
 --
 
 CREATE TABLE `room_members` (
+  `id` int(11) NOT NULL,
   `room_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
+  `status` enum('active','inactive') DEFAULT 'active',
   `joined_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `room_members`
+--
+
+INSERT INTO `room_members` (`id`, `room_id`, `user_id`, `status`, `joined_at`) VALUES
+(8, 10, 4, 'active', '2025-06-27 01:18:59'),
+(9, 11, 5, 'active', '2025-06-27 01:19:33');
 
 -- --------------------------------------------------------
 
@@ -229,7 +247,8 @@ ALTER TABLE `rooms`
 -- Indexes for table `room_members`
 --
 ALTER TABLE `room_members`
-  ADD PRIMARY KEY (`room_id`,`user_id`),
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `room_id` (`room_id`,`user_id`),
   ADD KEY `user_id` (`user_id`);
 
 --
@@ -266,7 +285,13 @@ ALTER TABLE `puzzle_hints`
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `room_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `room_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `room_members`
+--
+ALTER TABLE `room_members`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -321,8 +346,8 @@ ALTER TABLE `rooms`
 -- Constraints for table `room_members`
 --
 ALTER TABLE `room_members`
-  ADD CONSTRAINT `room_members_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`room_id`),
-  ADD CONSTRAINT `room_members_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+  ADD CONSTRAINT `room_members_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`room_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `room_members_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
