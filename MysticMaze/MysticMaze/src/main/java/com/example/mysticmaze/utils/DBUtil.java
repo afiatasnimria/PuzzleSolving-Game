@@ -44,7 +44,7 @@ public class DBUtil {
     }
 
     public static boolean validateUser(String username, String rawPassword) {
-        String query = "SELECT password_hash FROM users WHERE username = ?";
+        String query = "SELECT user_id, password_hash FROM users WHERE username = ?";
 
         try (Connection conn = getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -125,5 +125,18 @@ public class DBUtil {
         }
         return null;
     }
+
+    public static boolean isUserInActiveRoom(int userId) throws SQLException {
+        String sql = "SELECT rm.room_id FROM room_members rm " +
+                "JOIN rooms r ON rm.room_id = r.room_id " +
+                "WHERE rm.user_id = ? AND rm.status = 'active'";
+
+        try (PreparedStatement stmt = DBUtil.getConnection().prepareStatement(sql)) {
+            stmt.setInt(1, userId);
+            ResultSet rs = stmt.executeQuery();
+            return rs.next();  // true if at least one active room is found
+        }
+    }
+
 
 }

@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="500.0" prefWidth="750.0" style="-fx-background-image: url('../images/create_room_bg.png'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysticmaze.controllers.CreateRoomController">
 
@@ -39,5 +40,10 @@
 
         </children>
     </VBox>
+   <Label layoutX="25.0" layoutY="155.0" text="Room Name " textFill="#f2eded">
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Label>
 
 </AnchorPane>

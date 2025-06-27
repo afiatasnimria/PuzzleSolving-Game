@@ -1,6 +1,7 @@
 package com.example.mysticmaze.controllers;
 
 import com.example.mysticmaze.utils.DBUtil;
+import com.example.mysticmaze.utils.Session;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,11 +12,16 @@ import javafx.stage.Stage;
 import javafx.scene.Parent;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class LoginPageController {
 
     @FXML public TextField usernameField;
     @FXML public PasswordField passwordField;
+    int user_id;
 
     // Custom navigation variables
     private String previousPageFXML;
@@ -39,6 +45,23 @@ public class LoginPageController {
 
         if (DBUtil.validateUser(username, password)) {
             try {
+                String query = "SELECT user_id FROM users WHERE username = ?";
+
+                try (Connection conn = DBUtil.getConnection();
+                     PreparedStatement stmt = conn.prepareStatement(query)) {
+
+                    stmt.setString(1, username);
+                    ResultSet rs = stmt.executeQuery();
+
+                    if (rs.next()) {
+                         user_id = rs.getInt("user_id");
+                    }
+
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                //String query = "SELECT user_id FROM users WHERE username = ? AND password_hash = ?";
+                Session.setUserId(user_id); // store into user logged
                 // Determine next page
                 String nextPage = (targetPageFXML != null) ? targetPageFXML : "/com/example/mysticmaze/fxmls/DashboardPage.fxml";
 
