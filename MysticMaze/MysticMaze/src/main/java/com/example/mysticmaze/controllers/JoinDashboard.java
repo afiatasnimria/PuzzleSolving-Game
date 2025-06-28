@@ -3,6 +3,9 @@ package com.example.mysticmaze.controllers;
 import com.example.mysticmaze.models.Message;
 import com.example.mysticmaze.utils.DBUtil;
 import com.example.mysticmaze.utils.Session;
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,45 +19,74 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class JoinDashboard {
 
     // JoinDashboard Section
-    @FXML private Label player1Moves;
-    @FXML private Label player1Time;
-    @FXML private Label player1Status;
+    @FXML
+    private VBox chatVBox; // Your chat display container
+    private final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
 
-    @FXML private Label player2Moves;
-    @FXML private Label player2Time;
-    @FXML private Label player2Status;
+    //private final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
 
-    @FXML private Label player3Moves;
-    @FXML private Label player3Time;
-    @FXML private Label player3Status;
 
-    @FXML private TextArea messageField;
-    @FXML private Button messageSendButton;
 
-    @FXML private VBox chatBox;
-    @FXML private Button startGameButton;
+    @FXML
+    private Label player1Moves;
+    @FXML
+    private Label player1Time;
+    @FXML
+    private Label player1Status;
+
+    @FXML
+    private Label player2Moves;
+    @FXML
+    private Label player2Time;
+    @FXML
+    private Label player2Status;
+
+    @FXML
+    private Label player3Moves;
+    @FXML
+    private Label player3Time;
+    @FXML
+    private Label player3Status;
+
+    @FXML
+    private TextArea messageField;
+    @FXML
+    private Button messageSendButton;
+
+    @FXML
+    private VBox chatBox;
+    @FXML
+    private Button startGameButton;
 
     int current_user = Session.getUserId();
 
     // Level Buttons and Locks Section
-    @FXML private Button level1, level2, level3, level4, level5,
+    @FXML
+    private Button level1, level2, level3, level4, level5,
             level6;
 
-    @FXML private Label lock1, lock2, lock3, lock4, lock5,
+    @FXML
+    private Label lock1, lock2, lock3, lock4, lock5,
             lock6;
 
     private int currentUnlockedLevel = 1;
 
     @FXML
     public void initialize() {
+        int roomId = 10; // You can pass this dynamically
+        autoRefreshChat(roomId);
+
         // Init player statuses
         updatePlayerStatus(1, 12, "00:45", "Ready");
         updatePlayerStatus(2, 8, "00:38", "Offline");
@@ -70,6 +102,7 @@ public class JoinDashboard {
                 }
             });
         }
+
 
 
 
@@ -159,6 +192,7 @@ public class JoinDashboard {
         }
 
     }
+
     @FXML
     private void startLevel3(ActionEvent event) {
         try {
@@ -215,11 +249,12 @@ public class JoinDashboard {
         // Insert the message into the database
         DBUtil.insertRoomMessage(message);
     }
+
     @FXML
     private void handleBack(ActionEvent event) throws IOException {
-        Parent backRoot = FXMLLoader.load(getClass().getResource(previousPageFXML));
+        /*Parent backRoot = FXMLLoader.load(getClass().getResource(previousPageFXML));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(backRoot));
+        stage.setScene(new Scene(backRoot));*/
     }
 
     @FXML
@@ -260,6 +295,42 @@ public class JoinDashboard {
         stage.setScene(new Scene(levelRoot));
         stage.setTitle("Mystic Maze - Level " + levelNumber);
         stage.show();
+    }
+        // Message related kaj kam
+
+    private void autoRefreshChat(int roomId) {
+        scheduler.scheduleAtFixedRate(() -> {
+            try (Connection conn = DBUtil.getConnection();//.getConnection("jdbc:mysql://localhost:3306/", "user", "pass");
+                 PreparedStatement stmt = conn.prepareStatement(
+                         "SELECT m.message, m.sent_at, u.username " +
+                                 "FROM messages m JOIN users u ON m.sender_id = u.user_id " +
+                                 "WHERE m.room_id = ? ORDER BY m.sent_at DESC LIMIT 5")) {
+
+                stmt.setInt(1, roomId);
+                ResultSet rs = stmt.executeQuery();
+
+                List<String> chatLines = new ArrayList<>();
+                while (rs.next()) {
+                    String user = rs.getString("username");
+                    String msg = rs.getString("message");
+                    chatLines.add(user + ": " + msg);
+                }
+
+                Collections.reverse(chatLines); // Oldest message first
+
+                Platform.runLater(() -> {
+                    chatVBox.getChildren().clear();
+                    for (String line : chatLines) {
+                        Label label = new Label(line);
+                        label.setStyle("-fx-background-color: #2d2d2d; -fx-text-fill: white; -fx-padding: 5px; -fx-background-radius: 5px;");
+                        chatVBox.getChildren().add(label);
+                    }
+                });
+
+            } catch (SQLException e) {
+                e.printStackTrace(); // You can log or show an alert
+            }
+        }, 0, 2, TimeUnit.SECONDS);
     }
 
 }

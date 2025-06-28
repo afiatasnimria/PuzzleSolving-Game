@@ -4,8 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c7befd4-fe49-41d4-b0cf-5ccebecd9c39" name="Changes" comment="Changed By Monser">
+    <list default="true" id="0c7befd4-fe49-41d4-b0cf-5ccebecd9c39" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/java/com/example/mysticmaze/controllers/JoinDashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/java/com/example/mysticmaze/controllers/JoinDashboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/resources/com/example/mysticmaze/fxmls/joinDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/resources/com/example/mysticmaze/fxmls/joinDashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/AboutUsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/AboutUsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/CreateRoomController.class" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/CreateRoomController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/GiftBoxController.class" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/GiftBoxController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/HelpController.class" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/HelpController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/JoinDashboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/JoinDashboard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/JoinTeamController.class" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/JoinTeamController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/LeaderBoardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/LeaderBoardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/PlayerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/PlayerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/ProfilePageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/ProfilePageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/ProgressPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/ProgressPageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/RegisterPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/RegisterPageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/StartGameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/StartGameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/TohController$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/DashboardPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/DashboardPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/GiftBoxPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/GiftBoxPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/HelpPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/HelpPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/HomePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/HomePage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/LeaderBoardPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/LeaderBoardPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/PlayerPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/PlayerPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/TohPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/TohPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/aboutUsPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/aboutUsPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/createRoom.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/createRoom.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/joinDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/joinDashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/joinTeam.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/joinTeam.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/profilePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/profilePage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/progress_page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/progress_page.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/registerPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/registerPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/startGame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/startGame.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +54,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/afiatasnimria/PuzzleSolving-Game&quot;,
-    &quot;accountId&quot;: &quot;9d364868-05e5-4767-8664-1b8355ca843f&quot;
+    &quot;accountId&quot;: &quot;e40f5d89-d9d3-439d-b513-fab52c20ad5e&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -45,9 +75,15 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/Monser/PSG/PSG/MysticMaze/MysticMaze/src/main/resources/com/example/mysticmaze/fxmls&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -56,11 +92,37 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.mysticmaze.Main" />
+      <module name="MysticMaze" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.mysticmaze.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application" singleton="false">
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.129" />
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.129" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -69,20 +131,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1751090074944</updated>
+      <workItem from="1751121160837" duration="4939000" />
+      <workItem from="1751128689070" duration="1840000" />
     </task>
-    <task id="LOCAL-00001" summary="Changed By Monser">
-      <option name="closed" value="true" />
-      <created>1751114640078</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1751114640078</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changed By Monser" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed By Monser" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

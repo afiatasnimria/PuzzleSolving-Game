@@ -5,6 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 
+<?import javafx.scene.effect.Glow?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #f5f1e1;">
     <VBox spacing="20" alignment="TOP_CENTER" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10">
 
@@ -56,8 +57,6 @@
             </VBox>
         </HBox>
 
-        <!-- Back Button -->
-        <Button text="Back" style="-fx-font-size: 16px; -fx-background-color: #cd853f; -fx-text-fill: white;" prefWidth="100"/>
 
     </VBox>
 </AnchorPane>

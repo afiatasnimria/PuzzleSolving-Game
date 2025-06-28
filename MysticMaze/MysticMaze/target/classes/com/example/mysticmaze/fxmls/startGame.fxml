@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 
+<?import javafx.scene.effect.Glow?>
 <AnchorPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.mysticmaze.controllers.StartGameController"
             prefWidth="800" prefHeight="600">
@@ -132,5 +133,12 @@
                        -fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;" />
         <Label fx:id="lock10" text="🔒" visible="false" style="-fx-font-size: 22px; -fx-text-fill: white;" />
     </StackPane>
+
+    <!-- Back Button -->
+    <Button layoutX="51.0" layoutY="72.0" onAction="#handleBack" style="-fx-background-color: transparent; -fx-text-fill: #ffffff; -fx-font-size: 14; -fx-cursor: hand;" text="← Return">
+        <effect>
+            <Glow level="0.3" />
+        </effect>
+    </Button>
 
 </AnchorPane>
