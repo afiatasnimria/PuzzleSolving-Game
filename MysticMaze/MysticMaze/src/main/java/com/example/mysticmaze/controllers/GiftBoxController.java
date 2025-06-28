@@ -63,17 +63,23 @@ public class GiftBoxController implements Initializable {
         System.out.println("🎁 Reward claimed!");
     }
 
+    private String previousPageFXML = "/com/example/mysticmaze/fxmls/HomePage.fxml"; // ← set the previous page here
+
     @FXML
-    public void handleBack(javafx.event.ActionEvent event) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/HomePage.fxml"));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private void goToNext(ActionEvent event) throws IOException {
+        // Set current page as previous before navigating
+        previousPageFXML = "/com/example/mysticmaze/fxmls/ThisPage.fxml"; // ← set current FXML file name
+
+        Parent nextRoot = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/NextPage.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(nextRoot));
+    }
+
+    @FXML
+    private void handleBack(ActionEvent event) throws IOException {
+        Parent backRoot = FXMLLoader.load(getClass().getResource(previousPageFXML));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(backRoot));
     }
 
 }

@@ -9,6 +9,8 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.control.Button?>
 <BorderPane prefHeight="400" prefWidth="800" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysticmaze.controllers.TohController">
 
 
@@ -100,5 +102,6 @@
             </ScrollPane>
         </VBox>
     </right>
+
 
 </BorderPane>

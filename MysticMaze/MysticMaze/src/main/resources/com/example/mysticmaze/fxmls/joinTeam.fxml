@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.effect.Glow?>
 <AnchorPane prefHeight="503.0" prefWidth="769.0" style="-fx-background-image: url('../images/join_team_bg.png'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysticmaze.controllers.JoinTeamController">
     <!-- Background image -->
     <ImageView fitHeight="513.0" fitWidth="769.0" preserveRatio="false">
@@ -32,4 +33,11 @@
             <Label fx:id="statusLabel" style="-fx-font-size: 16px; -fx-effect: dropshadow(gaussian, #9966ff, 6, 0.7, 0, 0);" textFill="#fdfdfd" />
         </children>
     </VBox>
+
+    <!-- Back Button -->
+    <Button layoutX="51.0" layoutY="72.0" onAction="#handleBack" style="-fx-background-color: transparent; -fx-text-fill: #ffffff; -fx-font-size: 14; -fx-cursor: hand;" text="← Return">
+        <effect>
+            <Glow level="0.3" />
+        </effect>
+    </Button>
 </AnchorPane>
