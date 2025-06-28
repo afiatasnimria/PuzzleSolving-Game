@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0c7befd4-fe49-41d4-b0cf-5ccebecd9c39" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/MysticMaze1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j_9_3_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j_9_3_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j_9_3_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j_9_3_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/java/com/example/mysticmaze/controllers/CreateRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/java/com/example/mysticmaze/controllers/CreateRoomController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/java/com/example/mysticmaze/controllers/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/java/com/example/mysticmaze/controllers/DashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/java/com/example/mysticmaze/controllers/JoinDashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/java/com/example/mysticmaze/controllers/JoinDashboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/java/com/example/mysticmaze/controllers/JoinTeamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/java/com/example/mysticmaze/controllers/JoinTeamController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/java/com/example/mysticmaze/controllers/TohController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/java/com/example/mysticmaze/controllers/TohController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/java/com/example/mysticmaze/models/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/java/com/example/mysticmaze/models/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/java/com/example/mysticmaze/network/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/java/com/example/mysticmaze/network/ClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/java/com/example/mysticmaze/utils/DBUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/java/com/example/mysticmaze/utils/DBUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/resources/com/example/mysticmaze/fxmls/DashboardPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/resources/com/example/mysticmaze/fxmls/DashboardPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/resources/com/example/mysticmaze/fxmls/TohPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/resources/com/example/mysticmaze/fxmls/TohPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/resources/com/example/mysticmaze/fxmls/joinDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/resources/com/example/mysticmaze/fxmls/joinDashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/SQL/mysticmaze.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/AboutUsController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/CreateRoomController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/DashboardController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/GiftBoxController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/HelpController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/HomePageController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/JoinDashboard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/JoinTeamController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/LeaderBoardController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/LevelController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/LoginPageController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/PlayerController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/ProfilePageController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/ProgressPageController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/RegisterPageController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/StartGameController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/DashboardPage.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/GiftBoxPage.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/HelpPage.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/HomePage.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/LeaderBoardPage.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/LevelPage.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/PlayerPage.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/aboutUsPage.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/createRoom.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/joinDashboard.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/joinTeam.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/loginPage.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/profilePage.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/progress_page.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/registerPage.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/startGame.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/images/ashira.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/images/background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/images/echo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/images/giftbox.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/images/iris.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/images/juno.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/images/label (2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/images/log.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/images/opened_giftbox.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/images/rook.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/images/trophy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/images/vex.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/models/GameSession.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/models/Leaderboard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/models/PlayerProgress.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/models/Puzzle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/models/PuzzleHint.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/models/Reward.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/models/Room.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/models/RoomMember.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/models/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/utils/DBUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/module-info.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "afiatasnimria"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/afiatasnimria/PuzzleSolving-Game",
+    "accountId": "9d364868-05e5-4767-8664-1b8355ca843f"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="2z7lcuz3RqkrVVwEmq8BMWuLTdg" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.GameServer.executor": "Run",
+    "Application.Main.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/Monser/PSG/PSG/MysticMaze/MysticMaze/src/main/resources/com/example/mysticmaze/fxmls",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Monser\PSG\PSG\MysticMaze\MysticMaze\src\main\resources\com\example\mysticmaze\fxmls" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Application" factoryName="Application" singleton="false">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0c7befd4-fe49-41d4-b0cf-5ccebecd9c39" name="Changes" comment="" />
+      <created>1751090074944</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1751090074944</updated>
+    </task>
+    <servers />
+  </component>
+</project>

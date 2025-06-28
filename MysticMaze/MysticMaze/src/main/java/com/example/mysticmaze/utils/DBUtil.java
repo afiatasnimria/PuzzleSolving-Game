@@ -1,5 +1,6 @@
 package com.example.mysticmaze.utils;
 
+import com.example.mysticmaze.models.Message;
 import com.example.mysticmaze.models.Puzzle;
 import com.example.mysticmaze.models.User;
 
@@ -85,6 +86,18 @@ public class DBUtil {
 
     }
 
+    public static boolean getCurrentUserRoom(int userId) throws SQLException {
+        String sql = "SELECT rm.room_id FROM room_members rm " +
+                "WHERE rm.user_id = ? AND rm.status = 'active'";
+
+        try (PreparedStatement stmt = DBUtil.getConnection().prepareStatement(sql)) {
+            stmt.setInt(1, userId);
+            ResultSet rs = stmt.executeQuery();
+            //int id  = rs.next();  // true if at least one active room is found
+            return  rs.next();
+        }
+    }
+
 
     // puzzle related
     public static Puzzle getTowerOfHanoiPuzzle() {
@@ -137,6 +150,26 @@ public class DBUtil {
             return rs.next();  // true if at least one active room is found
         }
     }
+
+     public static void insertRoomMessage(Message message) {
+            String sql = "INSERT INTO messages (room_id, sender_id, message, type) VALUES (?, ?, ?, ?)";
+
+            try (Connection conn = DBUtil.getConnection();
+                 PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+                System.out.print(message.getRoomId());
+
+                stmt.setInt(1, message.getRoomId());
+                stmt.setInt(2, message.getSenderId());
+                stmt.setString(3, message.getMessage());
+                stmt.setString(4, message.getType());
+
+                stmt.executeUpdate();
+           } catch (SQLException e) {
+                e.printStackTrace();
+           }
+        }
+
 
 
 }

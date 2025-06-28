@@ -1,43 +1,22 @@
 package com.example.mysticmaze.controllers;
 
-import com.example.mysticmaze.models.Message;
-import com.example.mysticmaze.models.Puzzle;
-import com.example.mysticmaze.network.GameClient;
-import com.example.mysticmaze.utils.DBUtil;
-import com.google.gson.Gson;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.Stack;
 
-public class TohController implements Initializable {
-    private GameClient gameClient;
-    private final Gson gson = new Gson();
+public class TohController {
 
-    @FXML private TextArea chatBox;
-    @FXML private TextField chatInput;
-    @FXML private Button sendButton;
-    @FXML private VBox sidebar;
-
-    @FXML private Label disksLabel;
-    @FXML private Label bestMovesLabel;
-    @FXML private Label bestTimeLabel;
-    @FXML private Label difficultyLabel;
     @FXML private Pane rod1, rod2, rod3;
     @FXML private Label moveLabel, timerLabel;
 
@@ -50,29 +29,27 @@ public class TohController implements Initializable {
     private final Stack<Rectangle> stack2 = new Stack<>();
     private final Stack<Rectangle> stack3 = new Stack<>();
 
-
-
     private int moveCount = 0;
     private long startTime;
     private Timeline timeline;
-    private final int totalDisks = 6;
+    private final int totalDisks = 6; // YOU can change the number of disks here
 
-    private String username = "monser";
-    private String roomId = "1";
-    private Timer syncTimer;
-    private final Map<String, String> teammatesProgress = new ConcurrentHashMap<>();
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize() {
         drawRod(rod1);
         drawRod(rod2);
         drawRod(rod3);
 
-        Platform.runLater(() -> rod1.getScene().getRoot().setStyle("-fx-background-color: #ffe6f0;"));
+        javafx.application.Platform.runLater(() -> {
+            rod1.getScene().getRoot().setStyle("-fx-background-color: #ffe6f0;");
+        });
 
-        int rodWidth = (int) rod1.getPrefWidth() - 20;
-        int maxDiskWidth = rodWidth;
+        // Calculate the available space for disks, considering a bit of padding
+        int rodWidth = (int) rod1.getPrefWidth() - 20;  // Padding on both sides of the rod
+        int maxDiskWidth = rodWidth;  // Bottom disk will take up the full width of the rod
+
+        // Add disks in descending size
         for (int i = totalDisks; i > 0; i--) {
+            // Scale the disk width such that the bottom disk matches the rod's width
             int width = (int) (maxDiskWidth * (i / (double) totalDisks));
             Color color = Color.web(getRainbowColor(i));
             addDisk(rod1, stack1, width, color);
@@ -83,57 +60,6 @@ public class TohController implements Initializable {
         timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> updateTimer()));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
-
-        initializePuzzleInfo();
-        //initializeChatAndSync();
-    }
-
-    private void initializeChatAndSync() {
-        try {
-            //gameClient = new GameClient(message -> Platform.runLater(() -> handleServerMessage(message)));
-            gameClient.connect("localhost");
-            gameClient.send(gson.toJson(new Message("join", username, roomId, "")));
-
-            sendButton.setOnAction(e -> {
-                String msg = chatInput.getText();
-                if (!msg.isEmpty()) {
-                    gameClient.send(gson.toJson(new Message("chat", username, roomId, msg)));
-                    chatInput.clear();
-                }
-            });
-
-            syncTimer = new Timer(true);
-            syncTimer.scheduleAtFixedRate(new TimerTask() {
-                @Override
-                public void run() {
-                    long elapsed = (System.currentTimeMillis() - startTime) / 1000;
-                    String progress = "Moves: " + moveCount + ", Time: " + elapsed + "s";
-                    gameClient.send(gson.toJson(new Message("progress", username, roomId, progress)));
-                }
-            }, 4000, 4000);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void handleServerMessage(String json) {
-        Message msg = gson.fromJson(json, Message.class);
-        switch (msg.getType()) {
-            case "chat" -> chatBox.appendText("[" + msg.getSender() + "]: " + msg.getMessage() + "\n");
-            case "progress" -> {
-                teammatesProgress.put(msg.getSender(), msg.getMessage());
-                updateSidebar();
-            }
-        }
-    }
-
-    private void updateSidebar() {
-        sidebar.getChildren().clear();
-        Label self = new Label("ME: Moves: " + moveCount + ", Time: " + (System.currentTimeMillis() - startTime) / 1000 + "s");
-        sidebar.getChildren().add(self);
-        teammatesProgress.forEach((name, progress) -> {
-            if (!name.equals(username)) sidebar.getChildren().add(new Label(name + ": " + progress));
-        });
     }
 
     private void drawRod(Pane rod) {
@@ -163,7 +89,6 @@ public class TohController implements Initializable {
             disk.setStroke(null);
         }
     }
-
     @FXML
     private void onRodClicked(MouseEvent event) {
         Pane clickedRod = (Pane) event.getSource();
@@ -173,12 +98,12 @@ public class TohController implements Initializable {
             if (!clickedStack.isEmpty()) {
                 selectedRod = clickedRod;
                 selectedDisk = clickedStack.peek();
-                selectedDisk.setStroke(Color.BLACK);
-                selectedDisk.setStrokeWidth(2);
+                selectedDisk.setStroke(Color.BLACK);  // Set border color to black
+                selectedDisk.setStrokeWidth(2);      // Set border width to a thin value
             }
         } else {
             if (clickedRod == selectedRod) {
-                if (selectedDisk != null) selectedDisk.setStroke(null);
+                if (selectedDisk != null) selectedDisk.setStroke(null);  // Remove border when deselected
                 selectedRod = null;
                 selectedDisk = null;
                 return;
@@ -220,11 +145,13 @@ public class TohController implements Initializable {
                 disableRods();
             }
 
-            if (selectedDisk != null) selectedDisk.setStroke(null);
+            if (selectedDisk != null) selectedDisk.setStroke(null);  // Remove border after move
             selectedRod = null;
             selectedDisk = null;
         }
     }
+
+
 
     private Stack<Rectangle> getStack(Pane rod) {
         if (rod == rod1) return stack1;
@@ -255,22 +182,5 @@ public class TohController implements Initializable {
     private String getRainbowColor(int i) {
         String[] rainbow = {"#FF0000", "#FF7F00", "#FFFF00", "#00FF00", "#0000FF", "#4B0082", "#8B00FF"};
         return rainbow[(i - 1) % rainbow.length];
-    }
-
-    public void initializePuzzleInfo() {
-        DBUtil db = new DBUtil();
-        Puzzle puzzle = db.getTowerOfHanoiPuzzle();
-
-        if (puzzle != null) {
-            int disks = Integer.parseInt(puzzle.getPuzzleData());
-            int bestMoves = puzzle.getMinimum_moves();
-            float avgTime = puzzle.getMinimum_time_taken();
-            String difficulty = puzzle.getDifficulty();
-
-            disksLabel.setText("Total Disks: " + disks);
-            bestMovesLabel.setText("Best Solve: " + bestMoves + " moves");
-            bestTimeLabel.setText("Average Time: " + avgTime + "s");
-            difficultyLabel.setText("Difficulty: " + difficulty);
-        }
     }
 }

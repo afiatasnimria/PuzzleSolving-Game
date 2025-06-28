@@ -1,5 +1,8 @@
 package com.example.mysticmaze.controllers;
 
+import com.example.mysticmaze.models.Message;
+import com.example.mysticmaze.utils.DBUtil;
+import com.example.mysticmaze.utils.Session;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,10 +11,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class JoinDashboard {
 
@@ -28,8 +36,13 @@ public class JoinDashboard {
     @FXML private Label player3Time;
     @FXML private Label player3Status;
 
+    @FXML private TextArea messageField;
+    @FXML private Button messageSendButton;
+
     @FXML private VBox chatBox;
     @FXML private Button startGameButton;
+
+    int current_user = Session.getUserId();
 
     // Level Buttons and Locks Section
     @FXML private Button level1, level2, level3, level4, level5,
@@ -166,5 +179,41 @@ public class JoinDashboard {
         }
     }
 
+    @FXML
+    private void sendMessage(ActionEvent event) {
+        Message message = new Message();
+        message.setMessage(messageField.getText().trim());
+        message.setSenderId(current_user);
+
+        // SQL query to retrieve the room_id based on current_user
+        String sql = "SELECT room_id FROM room_members WHERE user_id = ?";
+
+        String room_idd = "0";  // Default room_id if none is found
+
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            // Set the parameter for the prepared statement
+            stmt.setInt(1, current_user);  // Pass the current_user as the parameter
+
+            // Execute the query
+            ResultSet rs = stmt.executeQuery();
+
+            // Retrieve the room_id if a record is found
+            if (rs.next()) {
+                room_idd = rs.getString("room_id");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        // Set the room_id for the message
+        message.setRoomId(Integer.parseInt(room_idd));
+        message.setType("message");
+
+        // Insert the message into the database
+        DBUtil.insertRoomMessage(message);
+    }
 
 }

@@ -40,7 +40,7 @@ public class CreateRoomController {
                 System.out.println("Server: " + message);
             });
             client.connect("localhost");
-            client.send(gson.toJson(new Message("join", "host_user", roomName, "")));
+            //client.send(gson.toJson(new Message("join", "host_user", roomName, "")));
         } catch (IOException e) {
             statusLabel.setText("Could not connect to server.");
             e.printStackTrace();

@@ -1,5 +1,7 @@
 package com.example.mysticmaze.controllers;
 
+import com.example.mysticmaze.utils.DBUtil;
+import com.example.mysticmaze.utils.Session;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +12,11 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import static com.example.mysticmaze.utils.DBUtil.getCurrentUserRoom;
 
 public class DashboardController {
 
@@ -100,5 +107,25 @@ public class DashboardController {
         stage.setTitle("Level");
         stage.setScene(new Scene(root));
         stage.show();
+    }
+
+    @FXML
+    public  void  GotoTeam(ActionEvent e){
+        try {
+            boolean flag = DBUtil.getCurrentUserRoom(Session.getUserId());
+            if(flag){
+                Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/joinDashboard.fxml"));
+                Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                stage.setResizable(false);
+                stage.setTitle("Profile");
+                stage.setScene(new Scene(root));
+                stage.show();
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
+
     }
 }

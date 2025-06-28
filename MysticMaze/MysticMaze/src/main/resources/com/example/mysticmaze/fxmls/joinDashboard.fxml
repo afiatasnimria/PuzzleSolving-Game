@@ -65,8 +65,8 @@
                     </padding>
                     <Label style="-fx-text-fill: #ffffff;" text="Player1: Let's go!" wrapText="true" />
                     <Label style="-fx-text-fill: #ffffff;" text="Player2: Ready!" wrapText="true" />
-               <TextArea prefHeight="200.0" prefWidth="200.0" />
-               <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="49.0" style="-fx-background-color: pink;" text="Send">
+               <TextArea fx:id="messageField" prefHeight="200.0" prefWidth="200.0" promptText="Write to your mates " />
+               <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#sendMessage" prefHeight="25.0" prefWidth="49.0" style="-fx-background-color: pink;" text="Send">
                   <effect>
                      <Glow />
                   </effect>
@@ -82,7 +82,7 @@
         <AnchorPane prefHeight="618.0" prefWidth="518.0">
 
             <!-- Background (optional, can match theme) -->
-            <ImageView fitHeight="618.0" fitWidth="553.0" layoutX="-4.0" preserveRatio="false">
+            <ImageView fitHeight="618.0" fitWidth="553.0" layoutX="-4.0" onDragDetected="#sendMessage" preserveRatio="false">
                 <image>
                     <Image url="@../images/log.png" />
                 </image>

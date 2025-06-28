@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 
 import java.io.*;
 import java.net.Socket;
+import java.net.SocketException;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -13,8 +14,9 @@ public class ClientHandler implements Runnable {
     private final Socket socket;
     private BufferedReader in;
     private PrintWriter out;
-    private String roomId;
+    private int roomId;
     private String username;
+    private  int user_id;
 
     private static final Gson gson = new Gson();
     private static final Map<String, Set<ClientHandler>> rooms = GameServer.getRooms();
@@ -36,15 +38,15 @@ public class ClientHandler implements Runnable {
                 switch (message.getType()) {
                     case "join":
                         roomId = message.getRoomId();
-                        username = message.getSender();
-                        rooms.putIfAbsent(roomId, ConcurrentHashMap.newKeySet());
+                        user_id = message.getSenderId();
+                        rooms.putIfAbsent(String.valueOf((roomId)), ConcurrentHashMap.newKeySet());
 
                         if (rooms.get(roomId).size() < 3) {
                             rooms.get(roomId).add(this);
                             System.out.println(username + " joined room " + roomId);
                             broadcastToRoom(roomId, input, this);
                         } else {
-                            out.println(gson.toJson(new Message("error", "Server", roomId, "Room full")));
+                            out.println(gson.toJson(new Message(roomId, user_id,"", "error")));
                         }
                         break;
 
@@ -55,13 +57,17 @@ public class ClientHandler implements Runnable {
                         break;
                 }
             }
-        } catch (IOException e) {
+        }
+        catch (SocketException e) {
+            System.out.println("Client disconnected: " + socket.getRemoteSocketAddress());
+        }
+        catch (IOException e) {
             e.printStackTrace();
         } finally {
             try {
-                if (roomId != null && rooms.containsKey(roomId)) {
+                if (roomId != 0 && rooms.containsKey(roomId)) {
                     rooms.get(roomId).remove(this);
-                    broadcastToRoom(roomId, gson.toJson(new Message("notify", "Server", roomId, username + " left the room")), this);
+                    broadcastToRoom(roomId, gson.toJson(new Message(roomId, user_id, username + " left the room","notify")), this);
                 }
                 socket.close();
             } catch (IOException e) {
@@ -70,7 +76,7 @@ public class ClientHandler implements Runnable {
         }
     }
 
-    private void broadcastToRoom(String roomId, String message, ClientHandler exclude) {
+    private void broadcastToRoom(int roomId, String message, ClientHandler exclude) {
         for (ClientHandler client : rooms.getOrDefault(roomId, Set.of())) {
             if (client != exclude) {
                 client.out.println(message);
