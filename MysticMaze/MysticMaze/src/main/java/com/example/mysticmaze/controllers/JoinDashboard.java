@@ -46,10 +46,10 @@ public class JoinDashboard {
 
     // Level Buttons and Locks Section
     @FXML private Button level1, level2, level3, level4, level5,
-            level6, level7, level8, level9, level10;
+            level6;
 
     @FXML private Label lock1, lock2, lock3, lock4, lock5,
-            lock6, lock7, lock8, lock9, lock10;
+            lock6;
 
     private int currentUnlockedLevel = 1;
 
@@ -78,7 +78,7 @@ public class JoinDashboard {
             setupLevels();
             Button[] levels = {
                     level1, level2, level3, level4, level5,
-                    level6, level7, level8, level9, level10
+                    level6
             };
 
             for (int i = 0; i < levels.length; i++) {
@@ -136,12 +136,12 @@ public class JoinDashboard {
     private void setupLevels() {
         Button[] levels = {
                 level1, level2, level3, level4, level5,
-                level6, level7, level8, level9, level10
+                level6
         };
 
         Label[] locks = {
                 lock1, lock2, lock3, lock4, lock5,
-                lock6, lock7, lock8, lock9, lock10
+                lock6
         };
 
         for (int i = 0; i < levels.length; i++) {
@@ -214,6 +214,52 @@ public class JoinDashboard {
 
         // Insert the message into the database
         DBUtil.insertRoomMessage(message);
+    }
+    @FXML
+    private void handleBack(ActionEvent event) throws IOException {
+        Parent backRoot = FXMLLoader.load(getClass().getResource(previousPageFXML));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(backRoot));
+    }
+
+    @FXML
+    private void handleLevel1(ActionEvent event) throws IOException {
+        loadLevelScene(1);
+    }
+
+    @FXML
+    private void handleLevel2(ActionEvent event) throws IOException {
+        loadLevelScene(2);
+    }
+
+    @FXML
+    private void handleLevel3(ActionEvent event) throws IOException {
+        loadLevelScene(3);
+    }
+
+    @FXML
+    private void handleLevel4(ActionEvent event) throws IOException {
+        loadLevelScene(4);
+    }
+
+    @FXML
+    private void handleLevel5(ActionEvent event) throws IOException {
+        loadLevelScene(5);
+    }
+
+    @FXML
+    private void handleLevel6(ActionEvent event) throws IOException {
+        loadLevelScene(6);
+    }
+
+    private void loadLevelScene(int levelNumber) throws IOException {
+        System.out.println("▶ Entering Level " + levelNumber);
+        String fxmlPath = "/com/example/mysticmaze/fxmls/levels/level" + levelNumber + ".fxml";
+        Parent levelRoot = FXMLLoader.load(getClass().getResource(fxmlPath));
+        Stage stage = (Stage) level1.getScene().getWindow(); // You can use any button's scene
+        stage.setScene(new Scene(levelRoot));
+        stage.setTitle("Mystic Maze - Level " + levelNumber);
+        stage.show();
     }
 
 }
