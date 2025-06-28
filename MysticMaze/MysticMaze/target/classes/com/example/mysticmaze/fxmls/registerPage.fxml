@@ -71,9 +71,9 @@
       </VBox>
 
       <!-- Back Button -->
-      <Button layoutX="55.0" layoutY="50.0" onAction="#handleBack" style="-fx-background-color: transparent; -fx-font-size: 14; -fx-text-fill: white;" text="← Back" textFill="#ffffff">
+      <Button layoutX="51.0" layoutY="72.0" onAction="#handleBack" style="-fx-background-color: transparent; -fx-text-fill: #ffffff; -fx-font-size: 14; -fx-cursor: hand;" text="← Return">
          <effect>
-            <Glow />
+            <Glow level="0.3" />
          </effect>
       </Button>
 

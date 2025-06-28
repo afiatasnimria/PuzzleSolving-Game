@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
+<?import javafx.scene.effect.Glow?>
 <AnchorPane prefHeight="513" prefWidth="761" style="-fx-background-image: url('/com/example/mysticmaze/images/background.png'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysticmaze.controllers.PlayerController">
 
    <!-- Glowing Logo (optional, adjust transparency or effect) -->
@@ -16,9 +17,11 @@
    </ImageView>
 
    <!-- Back Button -->
-   <Button fx:id="backButton" layoutX="53.0" layoutY="37.0" onAction="#handleBack" style="-fx-background-color: #2e2e4d; -fx-text-fill: #ffffff;                   -fx-font-size: 16px; -fx-font-weight: bold;                   -fx-background-radius: 12;                   -fx-effect: dropshadow(gaussian, #a29bfe, 10, 0.3, 0, 0);" text="↩ Return to Realms" />
-
-   <!-- Carousel for characters -->
+   <Button layoutX="51.0" layoutY="72.0" onAction="#handleBack" style="-fx-background-color: transparent; -fx-text-fill: #ffffff; -fx-font-size: 14; -fx-cursor: hand;" text="← Return">
+      <effect>
+         <Glow level="0.3" />
+      </effect>
+   </Button><!-- Carousel for characters -->
    <HBox fx:id="carousel" alignment="CENTER" layoutX="60.0" layoutY="100.0" prefHeight="350.0" prefWidth="665.0" spacing="20" />
 
                <!-- Previous Button -->
