@@ -1,0 +1,24 @@
+// Main.java
+package org.example.colourmapping;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class Main extends Application {
+    @Override
+    public void start(Stage stage) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("layout.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("Ancient Colour Mapping Puzzle");
+        stage.setScene(scene);
+        stage.show();
+        stage.setResizable(false); // disables maximize and resizing
+
+    }
+
+    public static void main(String[] args) {
+        launch();
+    }
+}
