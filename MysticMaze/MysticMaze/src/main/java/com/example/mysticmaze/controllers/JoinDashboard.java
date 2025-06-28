@@ -160,26 +160,6 @@ public class JoinDashboard {
 
     }
     @FXML
-    private void startLevel3(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/mysticmaze/fxmls/TohPage.fxml"));
-            Parent root = loader.load();
-
-            // Pass data to the game controller if needed
-            //TohController tohController = loader.getController();
-            //tohController.initData(currentUser, currentRoomId);  // optional
-
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setTitle("Level 1 - Tower of Hanoi");
-            stage.setScene(new Scene(root));
-            stage.setResizable(false);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
     private void sendMessage(ActionEvent event) {
         Message message = new Message();
         message.setMessage(messageField.getText().trim());
@@ -236,7 +216,13 @@ public class JoinDashboard {
 
     @FXML
     private void handleLevel1(ActionEvent event) throws IOException {
-        loadLevelScene(1);
+        System.out.println("🟢 Start Game button clicked!");
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/ColorMap.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setResizable(false);
+        stage.setTitle("Create a Team");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @FXML

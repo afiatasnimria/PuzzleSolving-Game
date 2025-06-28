@@ -88,7 +88,7 @@
 
             <!-- Level 1 -->
             <StackPane layoutX="220" layoutY="470">
-                <Button fx:id="level1" onAction="#handleLevel1" prefHeight="60" prefWidth="60" style="-fx-background-radius: 50em; -fx-border-radius: 50em;                            -fx-background-color: radial-gradient(center 50% 50%, radius 60%, #00ffff, #003344),                                                  linear-gradient(from 0% 0% to 100% 100%, #00ffff88, #001111cc),                                                  linear-gradient(from 0% 0% to 0% 100%, #00ffffcc 0%, #003344 100%);                            -fx-border-color: #66ffff; -fx-border-width: 2px;                            -fx-effect: dropshadow(gaussian, #00ffff, 30, 0.8, 0, 0);                            -fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;" text="1" />
+                <Button onAction="#handleLevel1" prefHeight="60" prefWidth="60" style="-fx-background-radius: 50em; -fx-border-radius: 50em;                            -fx-background-color: radial-gradient(center 50% 50%, radius 60%, #00ffff, #003344),                                                  linear-gradient(from 0% 0% to 100% 100%, #00ffff88, #001111cc),                                                  linear-gradient(from 0% 0% to 0% 100%, #00ffffcc 0%, #003344 100%);                            -fx-border-color: #66ffff; -fx-border-width: 2px;                            -fx-effect: dropshadow(gaussian, #00ffff, 30, 0.8, 0, 0);                            -fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;" text="1" />
                 <Label fx:id="lock1" style="-fx-font-size: 22px; -fx-text-fill: white;" text="🔒" visible="false" />
             </StackPane>
 
