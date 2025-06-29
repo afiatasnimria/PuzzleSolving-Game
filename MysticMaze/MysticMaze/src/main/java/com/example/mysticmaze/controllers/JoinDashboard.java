@@ -228,7 +228,7 @@ public class JoinDashboard {
     @FXML
     private void handleLevel2(ActionEvent event) throws IOException {
         System.out.println("🟢 Start Game button clicked!");
-        Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/ColorMap.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/CrossWord.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setResizable(false);
         stage.setTitle("Create a Team");
@@ -239,7 +239,7 @@ public class JoinDashboard {
     @FXML
     private void handleLevel3(ActionEvent event) throws IOException {
         System.out.println("🟢 Start Game button clicked!");
-        Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/TohPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/ColorMap.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setResizable(false);
         stage.setTitle("Create a Team");
@@ -249,6 +249,13 @@ public class JoinDashboard {
 
     @FXML
     private void handleLevel4(ActionEvent event) throws IOException {
+        System.out.println("🟢 Start Game button clicked!");
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/TohPage.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setResizable(false);
+        stage.setTitle("Create a Team");
+        stage.setScene(new Scene(root));
+        stage.show();
 
     }
 

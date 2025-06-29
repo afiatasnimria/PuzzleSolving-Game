@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c7befd4-fe49-41d4-b0cf-5ccebecd9c39" name="Changes" comment="game added in level 1">
-      <change afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/java/com/example/mysticmaze/controllers/GuessGameController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/resources/com/example/mysticmaze/fxmls/Guess.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/java/com/example/mysticmaze/controllers/CrossWordController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/resources/com/example/mysticmaze/fxmls/CrossWord.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/java/com/example/mysticmaze/controllers/JoinDashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/java/com/example/mysticmaze/controllers/JoinDashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/resources/com/example/mysticmaze/fxmls/joinDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/src/main/resources/com/example/mysticmaze/fxmls/joinDashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/SQL/mysticmaze.sql" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/SQL/mysticmaze.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/JoinDashboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/controllers/JoinDashboard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/joinDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/MysticMaze/MysticMaze/target/classes/com/example/mysticmaze/fxmls/joinDashboard.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +24,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="selim-games" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -38,7 +40,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/afiatasnimria/PuzzleSolving-Game.git&quot;,
-    &quot;accountId&quot;: &quot;9d364868-05e5-4767-8664-1b8355ca843f&quot;
+    &quot;accountId&quot;: &quot;f02c9e5c-caff-4bd3-90b8-2de36b0d82a3&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -60,8 +62,9 @@
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "D:/Monser/PSG/PSG/MysticMaze/MysticMaze/src/main/resources/com/example/mysticmaze/fxmls",
     "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2"
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
   }
 }]]></component>
   <component name="RecentsManager">
