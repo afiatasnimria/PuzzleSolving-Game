@@ -121,6 +121,9 @@ public class DashboardController {
                 stage.setScene(new Scene(root));
                 stage.show();
             }
+            else{
+                // pop up create or join a room first
+            }
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         } catch (IOException ex) {

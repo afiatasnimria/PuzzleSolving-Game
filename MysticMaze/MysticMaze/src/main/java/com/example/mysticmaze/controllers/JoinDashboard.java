@@ -3,6 +3,9 @@ package com.example.mysticmaze.controllers;
 import com.example.mysticmaze.models.Message;
 import com.example.mysticmaze.utils.DBUtil;
 import com.example.mysticmaze.utils.Session;
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,49 +19,95 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class JoinDashboard {
 
     // JoinDashboard Section
-    @FXML private Label player1Moves;
-    @FXML private Label player1Time;
-    @FXML private Label player1Status;
+    @FXML
+    private VBox chatVBox; // Your chat display container
+    private final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
 
-    @FXML private Label player2Moves;
-    @FXML private Label player2Time;
-    @FXML private Label player2Status;
+    //private final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
 
-    @FXML private Label player3Moves;
-    @FXML private Label player3Time;
-    @FXML private Label player3Status;
+    @FXML
+    private Label roomName;
+    @FXML
+    private Label roomCode;
+    @FXML
+    private  Label roomCreator;
+    @FXML
+    private Label createdAt;
 
-    @FXML private TextArea messageField;
-    @FXML private Button messageSendButton;
+    @FXML
+    private  VBox player1data;
+    @FXML
+    private  VBox player2data;
+    @FXML
+    private VBox player3data;
 
-    @FXML private VBox chatBox;
-    @FXML private Button startGameButton;
+
+    @FXML
+    private Label player1Moves;
+    @FXML
+    private Label player1Time;
+    @FXML
+    private Label player1Status;
+
+
+    @FXML
+    private Label player2Moves;
+    @FXML
+    private Label player2Time;
+    @FXML
+    private Label player2Status;
+
+    @FXML
+    private Label player3Moves;
+    @FXML
+    private Label player3Time;
+    @FXML
+    private Label player3Status;
+
+    @FXML
+    private TextArea messageField;
+
+
+    @FXML
+    private Button startGameButton;
 
     int current_user = Session.getUserId();
 
     // Level Buttons and Locks Section
-    @FXML private Button level1, level2, level3, level4, level5,
+    @FXML
+    private Button level1, level2, level3, level4, level5,
             level6;
 
-    @FXML private Label lock1, lock2, lock3, lock4, lock5,
+    @FXML
+    private Label lock1, lock2, lock3, lock4, lock5,
             lock6;
 
     private int currentUnlockedLevel = 1;
 
     @FXML
     public void initialize() {
+       int roomId = getRoomIdForCurrentUser();
+        //int roomId = 10; // You can pass this dynamically
+        autoRefreshChat(roomId);
+        loadRoomDetails(roomId);
+        loadCurrentUserInfoToVBox(player1data);
+        //loadTeammatesToVBox(player2data);
+
         // Init player statuses
-        updatePlayerStatus(1, 12, "00:45", "Ready");
-        updatePlayerStatus(2, 8, "00:38", "Offline");
-        updatePlayerStatus(3, 15, "01:02", "Offline");
+        //updatePlayerStatus(1, 12, "00:45", "Ready");
+       // updatePlayerStatus(2, 8, "00:38", "Offline");
+        //updatePlayerStatus(3, 15, "01:02", "Offline");
 
         // Set up Start Game Button
         if (startGameButton != null) {
@@ -70,6 +119,7 @@ public class JoinDashboard {
                 }
             });
         }
+
 
 
 
@@ -159,6 +209,27 @@ public class JoinDashboard {
         }
 
     }
+
+    @FXML
+    private void startLevel3(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/mysticmaze/fxmls/TohPage.fxml"));
+            Parent root = loader.load();
+
+            // Pass data to the game controller if needed
+            //TohController tohController = loader.getController();
+            //tohController.initData(currentUser, currentRoomId);  // optional
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setTitle("Level 1 - Tower of Hanoi");
+            stage.setScene(new Scene(root));
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @FXML
     private void sendMessage(ActionEvent event) {
         Message message = new Message();
@@ -195,27 +266,38 @@ public class JoinDashboard {
         // Insert the message into the database
         DBUtil.insertRoomMessage(message);
     }
-    private String previousPageFXML = "/com/example/mysticmaze/fxmls/HomePage.fxml"; // ← set the previous page here
-
-    @FXML
-    private void goToNext(ActionEvent event) throws IOException {
-        // Set current page as previous before navigating
-        previousPageFXML = "/com/example/mysticmaze/fxmls/ThisPage.fxml"; // ← set current FXML file name
-
-        Parent nextRoot = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/NextPage.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(nextRoot));
-    }
 
     @FXML
     private void handleBack(ActionEvent event) throws IOException {
-        Parent backRoot = FXMLLoader.load(getClass().getResource(previousPageFXML));
+        /*Parent backRoot = FXMLLoader.load(getClass().getResource(previousPageFXML));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(backRoot));
+        stage.setScene(new Scene(backRoot));*/
     }
 
     @FXML
     private void handleLevel1(ActionEvent event) throws IOException {
+        System.out.println("🟢 Start Game button clicked!");
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/Guess.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setResizable(false);
+        stage.setTitle("Create a Team");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    @FXML
+    private void handleLevel2(ActionEvent event) throws IOException {
+        System.out.println("🟢 Start Game button clicked!");
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/CrossWord.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setResizable(false);
+        stage.setTitle("Create a Team");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    @FXML
+    private void handleLevel3(ActionEvent event) throws IOException {
         System.out.println("🟢 Start Game button clicked!");
         Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/ColorMap.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -226,38 +308,262 @@ public class JoinDashboard {
     }
 
     @FXML
-    private void handleLevel2(ActionEvent event) throws IOException {
-        loadLevelScene(2);
-    }
-
-    @FXML
-    private void handleLevel3(ActionEvent event) throws IOException {
-        loadLevelScene(3);
-    }
-
-    @FXML
     private void handleLevel4(ActionEvent event) throws IOException {
-        loadLevelScene(4);
+        System.out.println("🟢 Start Game button clicked!");
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/TohPage.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setResizable(false);
+        stage.setTitle("Create a Team");
+        stage.setScene(new Scene(root));
+        stage.show();
+
     }
 
     @FXML
     private void handleLevel5(ActionEvent event) throws IOException {
-        loadLevelScene(5);
+
     }
 
     @FXML
     private void handleLevel6(ActionEvent event) throws IOException {
-        loadLevelScene(6);
+
+    }
+        // Message related kaj kam
+
+    private void autoRefreshChat(int roomId) {
+        scheduler.scheduleAtFixedRate(() -> {
+            loadTeammatesToVBox(player2data);
+            try (Connection conn = DBUtil.getConnection();//.getConnection("jdbc:mysql://localhost:3306/", "user", "pass");
+                 PreparedStatement stmt = conn.prepareStatement(
+                         "SELECT m.message, m.sent_at, u.username " +
+                                 "FROM messages m JOIN users u ON m.sender_id = u.user_id " +
+                                 "WHERE m.room_id = ? ORDER BY m.sent_at DESC LIMIT 5")) {
+
+                stmt.setInt(1, roomId);
+                ResultSet rs = stmt.executeQuery();
+
+                List<String> chatLines = new ArrayList<>();
+                while (rs.next()) {
+                    String user = rs.getString("username");
+                    String msg = rs.getString("message");
+                    String time = rs.getString("sent_at");
+                    chatLines.add(user + ": " + msg );
+                }
+
+                Collections.reverse(chatLines); // Oldest message first
+
+                Platform.runLater(() -> {
+                    chatVBox.getChildren().clear();
+                    for (String line : chatLines) {
+                        Label label = new Label(line);
+                        label.setStyle("-fx-background-color: #2d2d2d; -fx-text-fill: white; -fx-padding: 5px; -fx-background-radius: 5px;");
+                        chatVBox.getChildren().add(label);
+                    }
+                });
+
+            } catch (SQLException e) {
+                e.printStackTrace(); // You can log or show an alert
+            }
+        }, 0, 1, TimeUnit.SECONDS);
     }
 
-    private void loadLevelScene(int levelNumber) throws IOException {
-        System.out.println("▶ Entering Level " + levelNumber);
-        String fxmlPath = "/com/example/mysticmaze/fxmls/levels/level" + levelNumber + ".fxml";
-        Parent levelRoot = FXMLLoader.load(getClass().getResource(fxmlPath));
-        Stage stage = (Stage) level1.getScene().getWindow(); // You can use any button's scene
-        stage.setScene(new Scene(levelRoot));
-        stage.setTitle("Mystic Maze - Level " + levelNumber);
-        stage.show();
+    // rood data load
+    private void loadRoomDetails(int roomId) {
+        String sql = """
+        SELECT r.room_name,r.room_code, r.created_at, u.username AS creator
+        FROM rooms r
+        JOIN users u ON r.host_user_id = u.user_id
+        WHERE r.room_id = ?
+        """;
+
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, roomId);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                String room_Code = rs.getString("room_code");
+                String created_At = rs.getString("created_at");
+                String creator = rs.getString("creator");
+                String room_Name = rs.getString("room_name");
+
+                roomName.setText("Room Name : "+room_Name);
+                roomCode.setText("Room Code : "+room_Code);
+                roomCreator.setText("Created By : "+creator);
+                createdAt.setText("Created At :"+created_At);
+
+
+
+                System.out.println("🟢 Room Code: " + roomCode);
+                System.out.println("👤 Created By: " + creator);
+                System.out.println("📅 Created At: " + created_At);
+                System.out.println("📅 Room name : " + room_Name);
+
+                // Optional: Display in FXML labels
+                // roomCodeLabel.setText(roomCode);
+                // creatorLabel.setText(creator);
+                // createdAtLabel.setText(createdAt);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+    private int getRoomIdForCurrentUser() {
+        String sql = "SELECT room_id FROM room_members WHERE user_id = ?";
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, Session.getUserId());
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("room_id");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+    private void loadCurrentUserInfoToVBox(VBox userInfoBox) {
+        int currentUserId = Session.getUserId();
+
+        String sql = """
+        SELECT u.username, u.email,
+               COALESCE(SUM(p.moves_used), 0) AS total_moves,
+               COALESCE(SUM(p.time_used), 0) AS total_time
+        FROM users u
+        LEFT JOIN user_puzzle_performance p ON u.user_id = p.user_id
+        WHERE u.user_id = ?
+        GROUP BY u.user_id
+        """;
+
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, currentUserId);
+            ResultSet rs = stmt.executeQuery();
+
+            // Store data before ResultSet is closed
+            String username = null, email = null;
+            int totalMoves = 0, totalTime = 0;
+            boolean found = false;
+
+            if (rs.next()) {
+                username = rs.getString("username");
+                email = rs.getString("email");
+                totalMoves = rs.getInt("total_moves");
+                totalTime = rs.getInt("total_time");
+                found = true;
+            }
+
+            // Update UI on FX thread
+            final String finalUsername = username;
+            final String finalEmail = email;
+            final int finalMoves = totalMoves;
+            final int finalTime = totalTime;
+            final boolean userFound = found;
+
+            Platform.runLater(() -> {
+                userInfoBox.getChildren().clear();
+
+                if (userFound) {
+                    userInfoBox.getChildren().addAll(
+                            createStyledLabel("👤 Username: " + finalUsername),
+                            createStyledLabel("📧 Email: " + finalEmail),
+                            createStyledLabel("🏃 Total Moves: " + finalMoves),
+                            createStyledLabel("⏱ Total Time: " + finalTime + "s")
+                    );
+                } else {
+                    userInfoBox.getChildren().add(createStyledLabel("⚠ No user data found."));
+                }
+            });
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void loadTeammatesToVBox(VBox teammateBox) {
+        int currentUserId = Session.getUserId();
+
+        String getRoomQuery = "SELECT room_id FROM room_members WHERE user_id = ?";
+        String getTeammatesQuery = """
+        SELECT u.username, u.email
+        FROM room_members rm
+        JOIN users u ON rm.user_id = u.user_id
+        WHERE rm.status = 'active' and rm.room_id = ? AND rm.user_id != ?
+        LIMIT 2
+        """;
+
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement roomStmt = conn.prepareStatement(getRoomQuery)) {
+
+            roomStmt.setInt(1, currentUserId);
+            ResultSet roomRs = roomStmt.executeQuery();
+
+            if (roomRs.next()) {
+                int roomId = roomRs.getInt("room_id");
+
+                try (PreparedStatement teammateStmt = conn.prepareStatement(getTeammatesQuery)) {
+                    teammateStmt.setInt(1, roomId);
+                    teammateStmt.setInt(2, currentUserId);
+                    ResultSet rs = teammateStmt.executeQuery();
+
+                    List<Label> teammateLabels = new ArrayList<>();
+
+                    while (rs.next()) {
+                        String name = rs.getString("username");
+                        String email = rs.getString("email");
+
+                        teammateLabels.add(createStyledLabel("👤 Username: " + name));
+                        teammateLabels.add(createStyledLabel("📧 Email: " + email));
+                        teammateLabels.add(new Label("..................."));
+                    }
+
+                    Platform.runLater(() -> {
+                        teammateBox.getChildren().clear();
+                        if (teammateLabels.isEmpty()) {
+                            teammateBox.getChildren().add(createStyledLabel("😔 No teammates found"));
+                        } else {
+                            teammateBox.getChildren().addAll(teammateLabels);
+                        }
+                    });
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private  void  LeaveRoom(ActionEvent event){
+        int userId = Session.getUserId(); // current user
+        String sql = "UPDATE room_members SET status = 'inactive' WHERE user_id = ?";
+
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, userId);
+            int rowsAffected = stmt.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("✅ Status updated to inactive.");
+            } else {
+                System.out.println("⚠️ No record found to update.");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+    private Label createStyledLabel(String text) {
+        Label label = new Label(text);
+        label.setStyle("-fx-font-size: 12px; -fx-text-fill: white; -fx-background-color: #333; -fx-padding: 0px; -fx-background-radius: 5;");
+        return label;
     }
 
 }
