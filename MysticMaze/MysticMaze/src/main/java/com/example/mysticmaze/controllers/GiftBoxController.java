@@ -11,7 +11,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -30,6 +32,8 @@ public class GiftBoxController implements Initializable {
 
     @FXML
     private Button backButton;
+    @FXML
+    private Label rewardMessageLabel;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -58,9 +62,8 @@ public class GiftBoxController implements Initializable {
     }
 
     @FXML
-    private void handleClaimReward(javafx.event.ActionEvent event) {
-        // You can replace this with your reward logic
-        System.out.println("🎁 Reward claimed!");
+    private void handleClaimReward(ActionEvent event) {
+        rewardMessageLabel.setVisible(true); // Show the label when reward is claimed
     }
 
     private String previousPageFXML = "/com/example/mysticmaze/fxmls/HomePage.fxml"; // ← set the previous page here

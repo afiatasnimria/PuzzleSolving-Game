@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.Glow;
 import javafx.scene.input.MouseEvent;
@@ -26,6 +27,9 @@ public class LevelController {
     @FXML private Button level1Btn, level2Btn, level3Btn, level4Btn;
     @FXML private Button level5Btn, level6Btn, level7Btn, level8Btn;
     @FXML private Button backBtn;
+    @FXML
+    private Label loginMessageLabel;
+
 
     @FXML
     private void handleBack(ActionEvent event) throws IOException {
@@ -137,35 +141,68 @@ public class LevelController {
             delay += 300;
         }
     }
-    public void tohButton(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/mysticmaze/fxmls/TohPage.fxml"));
-            Parent root = loader.load();
-
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setResizable(false);
-            stage.setTitle("Player");
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-            // Optionally show an alert to the user:
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Failed to load page");
-            alert.setContentText("Could not load TohPage.fxml.");
-            alert.showAndWait();
-        }
+    public void tohButton(ActionEvent event) throws IOException {
+        System.out.println("🟢 Start Game button clicked!");
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/TohPage.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setResizable(false);
+        stage.setTitle("Create a Team");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
 
     // 🎮 Level actions
-    @FXML private void handleLevel1() { System.out.println("Entering Whispering Woods..."); }
-    @FXML private void handleLevel2() { System.out.println("Entering Cursed Cavern..."); }
-    @FXML private void handleLevel3() { System.out.println("Entering Ember Peak..."); }
-    @FXML private void handleLevel4() { System.out.println("Entering Silent Depths..."); }
-    @FXML private void handleLevel5() { System.out.println("Entering Twilight Path..."); }
-    @FXML private void handleLevel6() { System.out.println("Entering Frozen Hollow..."); }
-    @FXML private void handleLevel7() { System.out.println("Entering Stormspire..."); }
-    @FXML private void handleLevel8() { System.out.println("Entering Necro Keep..."); }
+    @FXML private void Jigsaw(ActionEvent event) throws IOException {
+        System.out.println("🟢 Start Game button clicked!");
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/Jigsaw.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setResizable(false);
+        stage.setTitle("Create a Team");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+    @FXML private void Guess(ActionEvent event) throws IOException {
+        System.out.println("🟢 Start Game button clicked!");
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/Guess.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setResizable(false);
+        stage.setTitle("Create a Team");
+        stage.setScene(new Scene(root));
+        stage.show(); }
+    @FXML
+    private void blank1() {
+        showLoginMessage();
+    }
+
+    @FXML
+    private void blank2() {
+        showLoginMessage();
+    }
+
+    @FXML
+    private void blank3() {
+        showLoginMessage();
+    }
+
+    @FXML
+    private void blank4() {
+        showLoginMessage();
+    }
+
+    @FXML
+    private void blank5() {
+        showLoginMessage();
+    }
+
+    private void showLoginMessage() {
+        loginMessageLabel.setVisible(true);
+
+        // Optional: Fade in for a nice effect
+        FadeTransition ft = new FadeTransition(Duration.millis(600), loginMessageLabel);
+        ft.setFromValue(0.0);
+        ft.setToValue(1.0);
+        ft.play();
+    }
+
 }

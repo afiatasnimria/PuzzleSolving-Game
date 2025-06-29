@@ -53,11 +53,18 @@
             <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="61.0" style="-fx-background-color: transparent; -fx-text-fill: #f8f8f8;  -fx-font-weight: bold; -fx-cursor: hand;" text="Home" />
 
             <Button mnemonicParsing="false" onAction="#Help" prefHeight="25.0" prefWidth="47.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0;-fx-font-weight: bold; -fx-cursor: hand;" text="Help" />
-            <Button alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#ProfilePage" prefHeight="19.0" prefWidth="66.0" style="-fx-background-color: transparent; -fx-text-fill: #fdfcc4; -fx-font-weight: bold; -fx-cursor: hand;">
-               <text>
-                  Profile
-               </text>
-            </Button>
+            <Button fx:id="welcomeLabel"
+                    text="Welcome, User"
+                    onAction="#ProfilePage"
+                    style="-fx-background-color: transparent; -fx-text-fill: #ffffff; -fx-font-weight: bold; -fx-font-size: 13px; -fx-cursor: hand; -fx-padding: 0;"
+                    mnemonicParsing="false"
+                    prefHeight="25.0"
+                    prefWidth="120.0"
+            />
+
+            <Button mnemonicParsing="false" onAction="#handleLogout" prefHeight="25.0" prefWidth="70.0"
+                    style="-fx-background-color: linear-gradient(#7a3adf, #2e0059); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 12; -fx-cursor: hand;"
+                    text="Logout" />
          </children>
       </HBox>
 

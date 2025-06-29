@@ -65,7 +65,7 @@
             <!-- Link to Login -->
             <HBox alignment="CENTER" spacing="5.0">
                <Label text="Already a member?" textFill="#e0e0e0" />
-               <Button style="-fx-background-color: transparent; -fx-text-fill: #ffdd57;" text="Login" underline="true" />
+               <Button onAction="#LoginPage" style="-fx-background-color: transparent; -fx-text-fill: #ffdd57;" text="Login" underline="true" />
             </HBox>
          </children>
       </VBox>

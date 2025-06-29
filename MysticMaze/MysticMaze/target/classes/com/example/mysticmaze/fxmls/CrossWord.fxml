@@ -3,108 +3,81 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="700" prefWidth="1000" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mysticmaze.controllers.CrossWordController">
+<?import javafx.scene.layout.HBox?>
+<BorderPane prefHeight="800.0" prefWidth="1000.0"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.mysticmaze.controllers.CrossWordController">
 
-    <!-- LEFT: Team Sidebar -->
-    <left>
-        <VBox prefWidth="260" spacing="12" style="-fx-background-color: #202040;">
-            <padding>
-                <Insets bottom="20" left="15" right="15" top="20" />
-            </padding>
-
-            <Label style="-fx-text-fill: #ffffff; -fx-font-size: 20px; -fx-font-weight: bold;                           -fx-effect: dropshadow(gaussian, #7cfcff, 8, 0.2, 0, 0);" text="🧑 Team Members" />
-
-            <!-- Player Status Cards -->
-            <VBox spacing="10">
-                <TitledPane expanded="true" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-background-color: #2a2a44;" text="Player 1">
-                    <VBox spacing="6" style="-fx-background-color: #2f2f4f;">
-                        <padding><Insets bottom="6" left="6" right="6" top="6" /></padding>
-                        <Label fx:id="player1Moves" style="-fx-text-fill: #ffffff;" text="Moves: 0" />
-                        <Label fx:id="player1Time" style="-fx-text-fill: #ffffff;" text="Time: 00:00" />
-                        <Label fx:id="player1Status" style="-fx-text-fill: #00ff88; -fx-font-weight: bold;" text="Status: Ready" />
-                    </VBox>
-                </TitledPane>
-
-                <TitledPane expanded="true" style="-fx-text-fill: white; -fx-background-color: #2a2a44;" text="Player 2">
-                    <VBox spacing="6" style="-fx-background-color: #2f2f4f;">
-                        <padding><Insets bottom="6" left="6" right="6" top="6" /></padding>
-                        <Label fx:id="player2Moves" style="-fx-text-fill: #ffffff;" text="Moves: 0" />
-                        <Label fx:id="player2Time" style="-fx-text-fill: #ffffff;" text="Time: 00:00" />
-                        <Label fx:id="player2Status" style="-fx-text-fill: #ffcc00; -fx-font-weight: bold;" text="Status: Waiting" />
-                    </VBox>
-                </TitledPane>
-
-                <TitledPane expanded="true" style="-fx-text-fill: white; -fx-background-color: #2a2a44;" text="Player 3">
-                    <VBox spacing="6" style="-fx-background-color: #2f2f4f;">
-                        <padding><Insets bottom="6" left="6" right="6" top="6" /></padding>
-                        <Label fx:id="player3Moves" style="-fx-text-fill: #ffffff;" text="Moves: 0" />
-                        <Label fx:id="player3Time" style="-fx-text-fill: #ffffff;" text="Time: 00:00" />
-                        <Label fx:id="player3Status" style="-fx-text-fill: #ff4444; -fx-font-weight: bold;" text="Status: Offline" />
-                    </VBox>
-                </TitledPane>
-            </VBox>
-
-            <!-- Chat Section -->
-            <Label style="-fx-text-fill: #ffffff; -fx-font-size: 18px; -fx-padding: 10 0 0 0;                           -fx-effect: dropshadow(gaussian, #00ffff, 6, 0.2, 0, 0);" text="💬 Team Chat" />
-
-            <ScrollPane fitToWidth="true" prefHeight="200" style="-fx-background: #1e1e2e;">
-                <VBox fx:id="chatBox" spacing="6" style="-fx-background-color: #333355;">
-                    <padding>
-                        <Insets bottom="10" left="10" right="10" top="10" />
-                    </padding>
-                    <Label style="-fx-text-fill: #ffffff;" text="Player1: Let's go!" wrapText="true" />
-                    <Label style="-fx-text-fill: #ffffff;" text="Player2: Ready!" wrapText="true" />
-                </VBox>
-            </ScrollPane>
-        </VBox>
-    </left>
-
-    <!-- CENTER: Puzzle Area -->
+    <!-- CENTER: Puzzle Grid -->
     <center>
-        <GridPane fx:id="gridPane" hgap="5" prefHeight="700.0" prefWidth="503.0" vgap="5" BorderPane.alignment="CENTER">
+        <GridPane fx:id="gridPane" hgap="3" vgap="3"
+                  prefHeight="700.0" prefWidth="1000.0"
+                  style="-fx-background-color: #1e1e2f;"
+                  BorderPane.alignment="CENTER">
             <padding>
-                <Insets bottom="20" left="20" right="20" top="20" />
+                <Insets top="20" right="20" bottom="20" left="20" />
             </padding>
         </GridPane>
     </center>
 
-    <!-- RIGHT: Game Controls -->
-    <right>
-        <VBox alignment="TOP_LEFT" prefHeight="700.0" prefWidth="228.0" spacing="10" style="-fx-background-color: #202040;">
+    <bottom>
+        <HBox spacing="30" alignment="TOP_CENTER" prefHeight="200"
+              style="-fx-background-color: #202040;">
             <padding>
-                <Insets bottom="20" left="20" right="20" top="20" />
+                <Insets top="10" right="20" bottom="10" left="20" />
             </padding>
 
-            <!-- Game Rules Section -->
-            <TitledPane expanded="true" style="-fx-text-fill: #2f0404; -fx-background-color: #2a2a44;" text="📜 Game Rules" textFill="#2f0404">
-                <VBox spacing="4" style="-fx-background-color: #2f2f4f;">
-                    <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
-                    <Label style="-fx-text-fill: #ffffff;" text="1. Complete the puzzle as fast as possible." wrapText="true" />
-                    <Label style="-fx-text-fill: #ffffff;" text="2. Each move counts, so think wisely." wrapText="true" />
-                    <Label style="-fx-text-fill: #ffffff;" text="3. Use hints if you get stuck (limited hints)." wrapText="true" />
-                    <Label style="-fx-text-fill: #ffffff;" text="4. The first player to finish wins." wrapText="true" />
-                </VBox>
-            </TitledPane>
+            <!-- Section 1: Game Rules -->
+            <VBox spacing="6" alignment="TOP_LEFT" prefWidth="300">
+                <TitledPane text="📜 Game Rules" expanded="false"
+                            style="-fx-text-fill: white; -fx-background-color: #2a2a44;">
+                    <VBox spacing="4" style="-fx-background-color: #2f2f4f;">
+                        <padding><Insets top="8" right="8" bottom="8" left="8"/></padding>
+                        <Label style="-fx-text-fill: white;" wrapText="true"
+                               text="1. Complete the puzzle as fast as possible."/>
+                        <Label style="-fx-text-fill: white;" wrapText="true"
+                               text="2. Each move counts, so think wisely."/>
+                        <Label style="-fx-text-fill: white;" wrapText="true"
+                               text="3. Use hints if you get stuck (limited hints)."/>
+                        <Label style="-fx-text-fill: white;" wrapText="true"
+                               text="4. The first player to finish wins."/>
+                    </VBox>
+                </TitledPane>
+            </VBox>
 
-            <Label style="-fx-text-fill: white;" text="Time Elapsed:" />
-            <Label fx:id="timerLabel" style="-fx-text-fill: #ffffff;" text="00:00:00" />
-            <Separator />
-            <Button fx:id="hintButton" text="Show Hint" />
-            <Label style="-fx-text-fill: white;" text="Hints Used:" />
-            <Label fx:id="hintsUsedLabel" style="-fx-text-fill: #ffffff;" text="0" />
-            <Separator />
-            <Label style="-fx-text-fill: white;" text="Progress:" />
-            <Label fx:id="progressLabel" style="-fx-text-fill: #ffffff;" text="0 / 0" />
-            <Separator />
-            <Button fx:id="finishButton" text="Finish Game" />
-        </VBox>
-    </right>
+            <!-- Section 2: Timer & Hint -->
+            <VBox spacing="8" alignment="TOP_CENTER" prefWidth="200">
+                <Label style="-fx-text-fill: white;" text="Time Elapsed:" />
+                <Label fx:id="timerLabel" style="-fx-text-fill: white;" text="00:00:00" />
+
+                <Separator />
+
+                <Button fx:id="hintButton" text="Show Hint" style="-fx-font-weight: bold;" />
+                <Label style="-fx-text-fill: white;" text="Hints Used:" />
+                <Label fx:id="hintsUsedLabel" style="-fx-text-fill: white;" text="0" />
+            </VBox>
+
+            <!-- Section 3: Progress & Finish -->
+            <VBox spacing="8" alignment="TOP_RIGHT" prefWidth="200">
+                <Label style="-fx-text-fill: white;" text="Progress:" />
+                <Label fx:id="progressLabel" style="-fx-text-fill: white;" text="0 / 0" />
+
+                <Separator />
+
+                <Button fx:id="finishButton" text="Finish Game"
+                        style="-fx-background-color: #dddddd; -fx-font-weight: bold;" />
+            </VBox>
+        </HBox>
+    </bottom>
+
+
+
 
 </BorderPane>

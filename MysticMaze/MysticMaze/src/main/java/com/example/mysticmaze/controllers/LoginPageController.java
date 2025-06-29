@@ -22,7 +22,8 @@ public class LoginPageController {
     @FXML public TextField usernameField;
     @FXML public PasswordField passwordField;
     int user_id;
-
+    String name;
+    String email;
     // Custom navigation variables
     private String previousPageFXML;
     private String targetPageFXML;
@@ -45,7 +46,7 @@ public class LoginPageController {
 
         if (DBUtil.validateUser(username, password)) {
             try {
-                String query = "SELECT user_id FROM users WHERE username = ?";
+                String query = "SELECT user_id, email, username FROM users WHERE username = ?";
 
                 try (Connection conn = DBUtil.getConnection();
                      PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -54,7 +55,9 @@ public class LoginPageController {
                     ResultSet rs = stmt.executeQuery();
 
                     if (rs.next()) {
-                         user_id = rs.getInt("user_id");
+                        user_id = rs.getInt("user_id");
+                        name = rs.getString("username");
+                        email = rs.getString("email");
                     }
 
                 } catch (SQLException e) {
@@ -62,6 +65,8 @@ public class LoginPageController {
                 }
                 //String query = "SELECT user_id FROM users WHERE username = ? AND password_hash = ?";
                 Session.setUserId(user_id); // store into user logged
+                Session.setEmail(email);
+                Session.setUserName(name);
                 // Determine next page
                 String nextPage = (targetPageFXML != null) ? targetPageFXML : "/com/example/mysticmaze/fxmls/DashboardPage.fxml";
 
@@ -101,5 +106,17 @@ public class LoginPageController {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    public void register(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/mysticmaze/fxmls/registerPage.fxml"));
+
+        System.out.println(fxmlLoader);
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setResizable(false);
+        stage.setTitle("Puzzle solver");
+        stage.setScene(scene);
+        stage.show();
     }
 }

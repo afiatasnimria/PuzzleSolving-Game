@@ -44,10 +44,20 @@
          </children>
       </VBox>
 
-      <!-- Back Button -->
-      <Button layoutX="51.0" layoutY="72.0" onAction="#handleBack" style="-fx-background-color: transparent; -fx-text-fill: #ffffff; -fx-font-size: 14; -fx-cursor: hand;" text="← Return">
+      <!-- Back Button with Glowy Design -->
+      <Button layoutX="51.0" layoutY="72.0" onAction="#handleBack"
+              text="← Return"
+              style="
+            -fx-background-color: rgba(255, 255, 255, 0.08);
+            -fx-text-fill: #ffffff;
+            -fx-font-size: 16;
+            -fx-font-weight: bold;
+            -fx-padding: 8 16;
+            -fx-background-radius: 10;
+            -fx-cursor: hand;
+            -fx-effect: dropshadow(gaussian, #ffffffAA, 10, 0.5, 0, 0);">
          <effect>
-            <Glow level="0.3" />
+            <Glow level="0.6" />
          </effect>
       </Button>
 

@@ -80,7 +80,7 @@ public class TohController {
 
     private void updateLayout(Pane rod, Stack<Rectangle> stack) {
         int centerX = (int) rod.getPrefWidth() / 2;
-        int baseY = 300;
+        int baseY = (int) rod.getPrefHeight() - 10;
 
         for (int i = 0; i < stack.size(); i++) {
             Rectangle disk = stack.get(i);
@@ -89,6 +89,7 @@ public class TohController {
             disk.setStroke(null);
         }
     }
+
     @FXML
     private void onRodClicked(MouseEvent event) {
         Pane clickedRod = (Pane) event.getSource();
@@ -183,4 +184,5 @@ public class TohController {
         String[] rainbow = {"#FF0000", "#FF7F00", "#FFFF00", "#00FF00", "#0000FF", "#4B0082", "#8B00FF"};
         return rainbow[(i - 1) % rainbow.length];
     }
+
 }

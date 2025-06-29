@@ -15,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -210,25 +211,7 @@ public class JoinDashboard {
 
     }
 
-    @FXML
-    private void startLevel3(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/mysticmaze/fxmls/TohPage.fxml"));
-            Parent root = loader.load();
 
-            // Pass data to the game controller if needed
-            //TohController tohController = loader.getController();
-            //tohController.initData(currentUser, currentRoomId);  // optional
-
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setTitle("Level 1 - Tower of Hanoi");
-            stage.setScene(new Scene(root));
-            stage.setResizable(false);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     @FXML
     private void sendMessage(ActionEvent event) {
@@ -275,58 +258,49 @@ public class JoinDashboard {
     }
 
     @FXML
-    private void handleLevel1(ActionEvent event) throws IOException {
-        System.out.println("🟢 Start Game button clicked!");
-        Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/Guess.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setResizable(false);
-        stage.setTitle("Create a Team");
-        stage.setScene(new Scene(root));
-        stage.show();
+    private AnchorPane centerPane;
+
+    // Method to dynamically load game into center pane
+    private void loadGameInCenter(String fxmlPath) {
+        try {
+            Parent gameContent = FXMLLoader.load(getClass().getResource(fxmlPath));
+            centerPane.getChildren().clear();
+            centerPane.getChildren().add(gameContent);
+
+            // Make game fill the center pane
+            AnchorPane.setTopAnchor(gameContent, 0.0);
+            AnchorPane.setBottomAnchor(gameContent, 0.0);
+            AnchorPane.setLeftAnchor(gameContent, 0.0);
+            AnchorPane.setRightAnchor(gameContent, 0.0);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Level button handlers
+    @FXML
+    private void handleLevel1(ActionEvent event) {
+        loadGameInCenter("/com/example/mysticmaze/fxmls/Guess.fxml");
     }
 
     @FXML
-    private void handleLevel2(ActionEvent event) throws IOException {
-        System.out.println("🟢 Start Game button clicked!");
-        Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/CrossWord.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setResizable(false);
-        stage.setTitle("Create a Team");
-        stage.setScene(new Scene(root));
-        stage.show();
+    private void handleLevel2(ActionEvent event) {
+        loadGameInCenter("/com/example/mysticmaze/fxmls/CrossWord.fxml");
     }
 
     @FXML
-    private void handleLevel3(ActionEvent event) throws IOException {
-        System.out.println("🟢 Start Game button clicked!");
-        Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/ColorMap.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setResizable(false);
-        stage.setTitle("Create a Team");
-        stage.setScene(new Scene(root));
-        stage.show();
+    private void handleLevel3(ActionEvent event) {
+        loadGameInCenter("/com/example/mysticmaze/fxmls/ColorMap.fxml");
     }
 
     @FXML
-    private void handleLevel4(ActionEvent event) throws IOException {
-        System.out.println("🟢 Start Game button clicked!");
-        Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/TohPage.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setResizable(false);
-        stage.setTitle("Create a Team");
-        stage.setScene(new Scene(root));
-        stage.show();
-
+    private void handleLevel4(ActionEvent event) {
+        loadGameInCenter("/com/example/mysticmaze/fxmls/Jigsaw.fxml");
     }
-
     @FXML
-    private void handleLevel5(ActionEvent event) throws IOException {
-
-    }
-
-    @FXML
-    private void handleLevel6(ActionEvent event) throws IOException {
-
+    private void handleLevel5(ActionEvent event) {
+        loadGameInCenter("/com/example/mysticmaze/fxmls/TohPage.fxml");
     }
         // Message related kaj kam
 

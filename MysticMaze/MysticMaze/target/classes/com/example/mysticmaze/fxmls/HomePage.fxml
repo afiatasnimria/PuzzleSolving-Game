@@ -69,7 +69,7 @@
 
         <Button alignment="BOTTOM_CENTER" layoutX="458.0" layoutY="420.0" mnemonicParsing="false" onAction="#LeaderBoard" prefHeight="64.0" prefWidth="96.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f6b1;                        -fx-font-weight: bold; -fx-cursor: hand;" text="LeaderBoard" />
 
-        <Button alignment="BOTTOM_CENTER" layoutX="595.0" layoutY="419.0" mnemonicParsing="false" onAction="#Level" prefHeight="64.0" prefWidth="83.0" style="-fx-background-color: transparent; -fx-text-fill: #e7eb85;                        -fx-font-weight: bold; -fx-cursor: hand;" text="Level" />
+        <Button alignment="BOTTOM_CENTER" layoutX="595.0" layoutY="419.0" mnemonicParsing="false" onAction="#Level" prefHeight="64.0" prefWidth="83.0" style="-fx-background-color: transparent; -fx-text-fill: #e7eb85;                        -fx-font-weight: bold; -fx-cursor: hand;" text="Guest" />
     </children>
 
 </AnchorPane>

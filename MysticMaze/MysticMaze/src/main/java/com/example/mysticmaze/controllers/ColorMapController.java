@@ -19,15 +19,6 @@ public class ColorMapController {
     @FXML private Label timerLabel, moveCounterLabel, tipCounterLabel, bestTimeLabel, targetColorLabel;
     @FXML private ComboBox<String> colorSelector;
     @FXML private Button tipButton;
-    @FXML private TextField chatInputField;
-    @FXML private Button sendButton;
-    @FXML private VBox chatBox;
-
-
-    // Player status elements
-    @FXML private Label player1Moves, player1Time, player1Status;
-    @FXML private Label player2Moves, player2Time, player2Status;
-    @FXML private Label player3Moves, player3Time, player3Status;
 
 
     private final int gridSize = 5;
@@ -51,36 +42,9 @@ public class ColorMapController {
         setupGrid();
         setupColorSelector();
         startTimer();
-        setupPlayerStatus();
-        setupInitialChat();
-        setupSendMessage();
+
     }
 
-    private void setupPlayerStatus() {
-        // Player 1 (current player)
-        player1Status.setText("Status: Playing");
-        player1Status.setStyle("-fx-text-fill: #00ff88; -fx-font-weight: bold;");
-
-        // Player 2
-        player2Status.setText("Status: Waiting");
-        player2Status.setStyle("-fx-text-fill: #ffcc00; -fx-font-weight: bold;");
-
-        // Player 3
-        player3Status.setText("Status: Offline");
-        player3Status.setStyle("-fx-text-fill: #ff4444; -fx-font-weight: bold;");
-    }
-
-    private void setupInitialChat() {
-        Label msg1 = new Label("Player1: Let's go!");
-        msg1.setStyle("-fx-text-fill: #ffffff;");
-        msg1.setWrapText(true);
-
-        Label msg2 = new Label("Player2: Ready!");
-        msg2.setStyle("-fx-text-fill: #ffffff;");
-        msg2.setWrapText(true);
-
-        chatBox.getChildren().addAll(msg1, msg2);
-    }
 
     private void setupGrid() {
         double cellSize = 350.0 / gridSize;
@@ -119,10 +83,6 @@ public class ColorMapController {
         cell.setFill(chosen);
         moves++;
 
-        // Update move counters
-        moveCounterLabel.setText("Moves: " + moves);
-        player1Moves.setText("Moves: " + moves);
-
         checkWinCondition();
     }
 
@@ -145,8 +105,7 @@ public class ColorMapController {
 
         if (filled == total) {
             timer.stop();
-            player1Status.setText("Status: Completed");
-            player1Status.setStyle("-fx-text-fill: #00ffff; -fx-font-weight: bold;");
+
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Congratulations");
@@ -157,11 +116,10 @@ public class ColorMapController {
     }
 
     private void startTimer() {
-        timer = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
+        timer = new Timeline(new KeyFrame(Duration.seconds(10), e -> {
             seconds++;
             String timeString = formatTime(seconds);
             timerLabel.setText("Time: " + timeString);
-            player1Time.setText("Time: " + timeString);
         }));
         timer.setCycleCount(Timeline.INDEFINITE);
         timer.play();
@@ -182,7 +140,6 @@ public class ColorMapController {
         Label tipMsg = new Label("System: Try spreading colors to avoid adjacent conflicts!");
         tipMsg.setStyle("-fx-text-fill: #7cfcff;");
         tipMsg.setWrapText(true);
-        chatBox.getChildren().add(tipMsg);
 
         Alert tip = new Alert(Alert.AlertType.INFORMATION);
         tip.setTitle("Tip");
@@ -191,27 +148,5 @@ public class ColorMapController {
         tip.show();
     }
 
-    private void setupSendMessage() {
-        sendButton.setOnAction(e -> sendMessage());
-        chatInputField.setOnAction(e -> sendMessage());  // Enter key sends message
-    }
-
-    private void sendMessage() {
-        String message = chatInputField.getText().trim();
-        if (!message.isEmpty()) {
-            Label newMessage = new Label("You: " + message);
-            newMessage.setStyle("-fx-text-fill: #ffffff;");
-            newMessage.setWrapText(true);
-            chatBox.getChildren().add(newMessage);
-
-            chatInputField.clear();
-
-            // Optional: Scroll to bottom
-            chatBox.layout();
-            ((ScrollPane)chatBox.getParent().getParent()).setVvalue(1.0);
-
-            // TODO: Add networking or message dispatch logic here if multiplayer
-        }
-    }
 }
 
