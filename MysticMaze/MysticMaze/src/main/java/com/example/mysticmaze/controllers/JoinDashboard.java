@@ -217,7 +217,7 @@ public class JoinDashboard {
     @FXML
     private void handleLevel1(ActionEvent event) throws IOException {
         System.out.println("🟢 Start Game button clicked!");
-        Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/ColorMap.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/Guess.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setResizable(false);
         stage.setTitle("Create a Team");
@@ -227,37 +227,41 @@ public class JoinDashboard {
 
     @FXML
     private void handleLevel2(ActionEvent event) throws IOException {
-        loadLevelScene(2);
+        System.out.println("🟢 Start Game button clicked!");
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/ColorMap.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setResizable(false);
+        stage.setTitle("Create a Team");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @FXML
     private void handleLevel3(ActionEvent event) throws IOException {
-        loadLevelScene(3);
+        System.out.println("🟢 Start Game button clicked!");
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/TohPage.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setResizable(false);
+        stage.setTitle("Create a Team");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @FXML
     private void handleLevel4(ActionEvent event) throws IOException {
-        loadLevelScene(4);
+
     }
 
     @FXML
     private void handleLevel5(ActionEvent event) throws IOException {
-        loadLevelScene(5);
+
     }
 
     @FXML
     private void handleLevel6(ActionEvent event) throws IOException {
-        loadLevelScene(6);
+
     }
 
-    private void loadLevelScene(int levelNumber) throws IOException {
-        System.out.println("▶ Entering Level " + levelNumber);
-        String fxmlPath = "/com/example/mysticmaze/fxmls/levels/level" + levelNumber + ".fxml";
-        Parent levelRoot = FXMLLoader.load(getClass().getResource(fxmlPath));
-        Stage stage = (Stage) level1.getScene().getWindow(); // You can use any button's scene
-        stage.setScene(new Scene(levelRoot));
-        stage.setTitle("Mystic Maze - Level " + levelNumber);
-        stage.show();
-    }
+
 
 }
