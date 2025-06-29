@@ -1,5 +1,6 @@
 package com.example.mysticmaze.controllers;
 
+import com.example.mysticmaze.network.GameClient;
 import com.example.mysticmaze.utils.DBUtil;
 import com.example.mysticmaze.utils.Session;
 import javafx.event.ActionEvent;
@@ -114,10 +115,23 @@ public class DashboardController {
         try {
             boolean flag = DBUtil.getCurrentUserRoom(Session.getUserId());
             if(flag){
+
+                try {
+                    GameClient client = new GameClient(message -> {
+                        System.out.println("Server: " + message);
+                    });
+                    client.connect("localhost");
+                    //client.send(gson.toJson(new Message("join", "client_user", roomName, "")));
+                } catch (IOException ex) {
+                    //statusLabel.setText("Could not connect to server.");
+                    ex.printStackTrace();
+                    return;
+                }
+
                 Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/joinDashboard.fxml"));
                 Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
                 stage.setResizable(false);
-                stage.setTitle("Profile");
+                stage.setTitle("Room DashBoard");
                 stage.setScene(new Scene(root));
                 stage.show();
             }
