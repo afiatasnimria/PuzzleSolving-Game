@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -103,6 +104,7 @@ public class JoinDashboard {
         autoRefreshChat(roomId);
         loadRoomDetails(roomId);
         loadCurrentUserInfoToVBox(player1data);
+        getMaxLevelAttemptedByCurrentUserRoom();
         //loadTeammatesToVBox(player2data);
 
         // Init player statuses
@@ -278,6 +280,36 @@ public class JoinDashboard {
         }
     }
 
+    public static int getMaxLevelAttemptedByCurrentUserRoom() {
+        int currentUserId = Session.getUserId(); // Your current logged-in user
+        int maxLevel = 0;
+
+        String query = """
+        SELECT MAX(p.level) AS max_level
+        FROM user_puzzle_performance upp
+        JOIN room_members rm ON upp.room_id = rm.room_id
+        JOIN puzzles p ON upp.puzzle_id = p.puzzle_id
+        WHERE rm.user_id = ?
+    """;
+
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            stmt.setInt(1, currentUserId);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                maxLevel = rs.getInt("max_level");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return maxLevel;
+    }
+
+
     // Level button handlers
     @FXML
     private void handleLevel1(ActionEvent event) {
@@ -286,27 +318,52 @@ public class JoinDashboard {
 
     @FXML
     private void handleLevel2(ActionEvent event) {
-        loadGameInCenter("/com/example/mysticmaze/fxmls/CrossWord.fxml");
+        System.out.println(getMaxLevelAttemptedByCurrentUserRoom());
+        if(getMaxLevelAttemptedByCurrentUserRoom()>=1) {
+            System.out.println("Dhukse mone hoy ");
+            loadGameInCenter("/com/example/mysticmaze/fxmls/CrossWord.fxml");
+        }
+        else {
+            System.out.println("Unlock the previous level first ");
+        }
     }
 
     @FXML
     private void handleLevel3(ActionEvent event) {
-        loadGameInCenter("/com/example/mysticmaze/fxmls/ColorMap.fxml");
+        if(getMaxLevelAttemptedByCurrentUserRoom()>=2) {
+            loadGameInCenter("/com/example/mysticmaze/fxmls/ColorMap.fxml");
+        }
+        else {
+            System.out.println("Unlock the previous level first ");
+        }
+
     }
 
     @FXML
     private void handleLevel4(ActionEvent event) {
-        loadGameInCenter("/com/example/mysticmaze/fxmls/Jigsaw.fxml");
+        if(getMaxLevelAttemptedByCurrentUserRoom()>=3) {
+            loadGameInCenter("/com/example/mysticmaze/fxmls/Jigsaw.fxml");
+        }
+        else {
+            System.out.println("Unlock the previous level first ");
+        }
     }
     @FXML
     private void handleLevel5(ActionEvent event) {
-        loadGameInCenter("/com/example/mysticmaze/fxmls/TohPage.fxml");
+        if(getMaxLevelAttemptedByCurrentUserRoom()>=4) {
+            loadGameInCenter("/com/example/mysticmaze/fxmls/TohPage.fxml");
+        }
+        else {
+            System.out.println("Unlock the previous level first ");
+        }
+
     }
         // Message related kaj kam
 
     private void autoRefreshChat(int roomId) {
         scheduler.scheduleAtFixedRate(() -> {
             loadTeammatesToVBox(player2data);
+            loadCurrentUserInfoToVBox(player1data);
             try (Connection conn = DBUtil.getConnection();//.getConnection("jdbc:mysql://localhost:3306/", "user", "pass");
                  PreparedStatement stmt = conn.prepareStatement(
                          "SELECT m.message, m.sent_at, u.username " +
@@ -463,7 +520,7 @@ public class JoinDashboard {
 
         String getRoomQuery = "SELECT room_id FROM room_members WHERE user_id = ?";
         String getTeammatesQuery = """
-        SELECT u.username, u.email
+        SELECT u.username, u.email,rm.status
         FROM room_members rm
         JOIN users u ON rm.user_id = u.user_id
         WHERE rm.status = 'active' and rm.room_id = ? AND rm.user_id != ?
@@ -489,6 +546,7 @@ public class JoinDashboard {
                     while (rs.next()) {
                         String name = rs.getString("username");
                         String email = rs.getString("email");
+                       // String status = rs.getString("status");
 
                         teammateLabels.add(createStyledLabel("👤 Username: " + name));
                         teammateLabels.add(createStyledLabel("📧 Email: " + email));
@@ -531,6 +589,27 @@ public class JoinDashboard {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    private void handleLeaveRoom(ActionEvent event) throws IOException {
+        int currentUser = Session.getUserId();  // Get current user ID from session
+
+
+                System.out.println("✅ User status set to inactive.");
+
+
+                // Optionally navigate back to StartGame screen
+                Parent root = FXMLLoader.load(getClass().getResource("/com/example/mysticmaze/fxmls/DashboardPage.fxml"));
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Mystic Maze ");
+                stage.show();
+
+
+
+
+    }
+
 
 
 

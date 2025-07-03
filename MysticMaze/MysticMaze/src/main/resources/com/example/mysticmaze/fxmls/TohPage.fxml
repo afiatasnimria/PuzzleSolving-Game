@@ -12,7 +12,7 @@
 
     <!-- CENTER: Game Area -->
     <center>
-        <AnchorPane fx:id="gamePane" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: lavender;">
+        <AnchorPane fx:id="gamePane" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: Lavender;">
             <Label fx:id="moveLabel" layoutX="20" layoutY="10" style="-fx-font-size: 16;" text="Moves: 0" />
             <Label fx:id="timerLabel" layoutX="500" layoutY="10" style="-fx-font-size: 16;" text="Time: 0s" />
 
@@ -24,10 +24,10 @@
     </center>
 
     <bottom>
-        <VBox  style="-fx-background-color: #fff0f5; -fx-border-color: #ff69b4; -fx-border-width: 2;">
+        <VBox style="-fx-background-color: #000000; -fx-border-color: #ff69b4; -fx-border-width: 2;">
             <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #8b008b;" text="📜 Tower of Hanoi Rules" />
 
-            <ScrollPane fitToWidth="true"  style="-fx-background-color: transparent;">
+            <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
                 <VBox spacing="8" style="-fx-background-color: #ffe6ff; -fx-padding: 10;">
                     <Label text="1. Only one disk can be moved at a time." wrapText="true" />
                     <Label text="2. Each move involves taking the top disk from one of the stacks and placing it on top of another stack." wrapText="true" />
