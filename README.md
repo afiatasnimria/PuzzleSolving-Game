@@ -1,4 +1,4 @@
-# Mystic Maze
+# Mystic Maze( Award winning project in UIU CSE project show srping-25 )
 
 Mystic Maze is a team-based 2D multiplayer puzzle-hunting game designed to engage players in completing levels filled with riddles, puzzles, and challenges. It offers teamwork-based gameplay with hints, leaderboards, and special powers.
 
